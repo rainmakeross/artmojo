@@ -1,0 +1,97 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Artist.js')
+    script(type='text/javascript')
+        $(function() {
+                setupUI();
+        });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Add Artist
+                span 
+            .signupForm
+              form#artistEditFrm( method='post', action='/artists/doadd', name='artistEditFrm', enctype="multipart/form-data", onsubmit='return validateAddFrm();')
+                .signupFormRow
+                  label First Name:
+                  input(type="text", name="first_name", id="first_name")
+                  input(type="hidden", name="operatorId", id="operatorId", value="#{userId}")
+                  input(type="hidden", name="operator", id="operator", value="#{operator}")
+                .signupFormRow
+                  label Last Name:
+                  input(type="text", name="last_name", id="last_name")
+                .signupFormRow
+                  label Country:
+                  select(name='country', id='country', onchange='changeState(this.value);')
+                .signupFormRow
+                  label State:
+                  #stateHolder
+                    select(name='state', id='state', onchange='changeCity(this.value);')
+                .signupFormRow
+                  label City:
+                  #cityHolder
+                    select(name='city', id='city')
+                .signupFormRow
+                  label Picture Link:
+                  input(type="text", name="artist_image", id="artist_image", value="")
+                .signupFormRow
+                  label OR
+                  &nbsp;
+                .signupFormRow
+                  label Upload Picture:
+                  input(type="file", name="picture", id="picture")
+                
+                .signupFormRow
+                  label Your Story:
+                  textarea(name="description", id="description", rows="4", cols="25")
+                .signupFormRow
+                  label Website:
+                  input(type="text", name="website", id="website")
+                .signupFormRow
+                  label Email:
+                  input(type="text", name="email", id="email")
+                .signupFormRow
+                  label Phone:
+                  input(type="text", name="phone", id="phone")
+                .signupFormRow
+                  label Address:
+                  textarea(name="address1", id="address1", rows="4", cols="25")
+                .signupFormRow
+                  label Facebook:
+                  input(type="text", name="facebook", id="facebook")
+                .signupFormRow
+                  label Twitter:
+                  input(type="text", name="twitter", id="twitter")
+                .signupFormRow
+                  label Tumblr:
+                  input(type="text", name="tumblr", id="tumblr")
+                .signupFormRow
+                  label Youtube:
+                  input(type="text", name="youtube", id="youtube")
+                .signupFormRow
+                  label Teaching Category:
+                  select(name='category', id='category', onchange='changeCourse(this.value);')
+                    option(value='') All
+                .signupFormRow
+                  label Teaching Courses:
+                  #courses.checkHolder
+                
+                  
+                  input(type='submit', value='Update', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

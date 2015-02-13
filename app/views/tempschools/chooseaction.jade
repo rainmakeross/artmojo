@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/TempSchoolView.js')
+    
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Choose Action
+                span 
+            .signupForm
+              
+                
+                    .signupFormRow
+                      lftRadio <input type='radio' name='userAction' id='userAction1' value='1' onclick='performAction(this.value);' />
+                      <input type='hidden' name='url' id='url' value='#{url}' />
+                      labelRight 1. Register as owner of the profile.
+                    .signupFormRow
+                      lftRadio <input type='radio' name='userAction' id='userAction2' value='2' onclick='performAction(this.value);' />
+                      labelRight 2. Already registered as owner of the profile.
+                    .signupFormRow
+                      lftRadio <input type='radio' name='userAction' id='userAction3' value='3' onclick='performAction(this.value);' />
+                      labelRight 3. Update without registration.
+                
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

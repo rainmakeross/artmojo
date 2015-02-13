@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/admin_table.css')
+    script(type='text/javascript', src='/javascripts/jquery.dataTables.min.js')
+    script(type='text/javascript', src='/javascripts/uiControllers/School.js')
+    script(type='text/javascript')
+            $(function() {                    
+                   
+                    loadAllSchools();
+            });
+                    
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .content
+          .contentIn
+            .ourstory
+              .ourstoryHeader
+                h2 Schools
+              p
+                landingContainer
+                    div
+                        #add
+                           a(href="/schools/operator/add", class="clickButtons_v2") Add School
+                    .listDiv
+                        #schoolList
+
+            
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

@@ -1,0 +1,92 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/UserView.js')
+    script(type='text/javascript')
+        $(function() {
+                setupUI(#{school.id}, 'school');
+        });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Edit Profile
+                span 
+            .signupForm
+              form#schoolEditFrm( method='post', action='/schools/doedit', name='schoolEditFrm', enctype="multipart/form-data")
+                .signupFormRow
+                  label First Name:
+                  input(type="text", name="first_name", id="first_name", value= school.school_name ? school.school_name : '')
+                  input(type="hidden", name="id", id="id", value="#{school.id}")
+                .signupFormRow
+                  label Country:
+                  select(name='country', id='country', onchange='changeState(this.value);')
+                .signupFormRow
+                  label State:
+                  #stateHolder
+                    select(name='state', id='state', onchange='changeCity(this.value);')
+                .signupFormRow
+                  label City:
+                  #cityHolder
+                    select(name='city', id='city')
+                .signupFormRow
+                  label Picture Link:
+                  input(type="text", name="school_image", id="school_image", value="#{pasteUrl}")
+                  input(type="hidden", name="oldImage", id="oldImage", value="#{school.school_image}")
+                .signupFormRow
+                  label OR
+                  &nbsp;
+                .signupFormRow
+                  label Upload Picture:
+                  input(type="file", name="picture", id="picture")
+                .signupFormRow
+                  label Your Story:
+                  textarea(name="description", id="description", rows="4", cols="25") #{school.description}
+                .signupFormRow
+                  label Website:
+                  input(type="text", name="website", id="website", value= school.website ? school.website : '')
+                .signupFormRow
+                  label Email:
+                  input(type="text", name="email", id="email", value= school.email ? school.email : '')
+                .signupFormRow
+                  label Phone:
+                  input(type="text", name="phone", id="phone", value= school.phone ? school.phone : '')
+                .signupFormRow
+                  label Address:
+                  textarea(name="address", id="address", rows="4", cols="25") #{school.address1}
+                .signupFormRow
+                  label Facebook:
+                  input(type="text", name="facebook", id="facebook", value= school.facebook ? school.facebook : '')
+                .signupFormRow
+                  label Twitter:
+                  input(type="text", name="twitter", id="twitter", value= school.twitter ? school.twitter : '')
+                .signupFormRow
+                  label Tumblr:
+                  input(type="text", name="tumblr", id="tumblr", value= school.tumblr ? school.tumblr : '')
+                .signupFormRow
+                  label Youtube:
+                  input(type="text", name="youtube", id="youtube", value= school.youtube ? school.youtube : '')
+                .signupFormRow
+                  label Category:
+                  select(name='category', id='category', onchange='changeCourse(this.value);')
+                .signupFormRow
+                  label Courses:
+                  #courses
+                  span
+                    | Admin has all the rights to deactivate the user without any prior notice to the user. .
+                  input(type='submit', value='Edit', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

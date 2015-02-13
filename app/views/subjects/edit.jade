@@ -1,0 +1,44 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Subject.js')
+    script(type='text/javascript')
+        $(function() {
+                 setupUI(#{subject.courseId});
+        });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Edit subject
+                span It’s free & always will be.
+            .signupForm
+              form#subjectAddFrm( method='post', action='/subjects/doedit', name='subjectAddFrm', enctype="multipart/form-data", onsubmit='return validateSubjectFrm();')
+                .signupFormRow
+                  llabel Course:
+                  select(name='course', id='course')
+                .signupFormRow
+                  label Title:
+                  input(type="text", name="subject_name", id="subject_name", value='#{subject.subject_name}')
+                  input(type="hidden", name="subjectId", id="subjectId", value='#{subject.id}')
+                
+                
+                  span
+                    | 
+                  input(type='submit', value='Edit', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

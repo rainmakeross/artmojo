@@ -1,0 +1,57 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Blog.js')
+    script(type='text/javascript')
+      $(function() {
+        showReviews(#{blog.id});
+        
+        $(".basic").jRating({
+            bigStarsPath: '/images/stars.png',
+            smallStarsPath: '/images/small.png',
+            serverPath: '/blogs/rating',
+            step:true,
+            length : 5, // nb of stars
+            showRateInfo: false,
+            extraParam: #{blog.id}
+          });
+      });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        include ../elements/search
+        .content
+          .contentIn
+            #blogList
+                .blogTitle #{blog.title}
+                .blogRating <div class="basic" data-average="#{totalRate}" data-id="#{blog.id}"></div>
+                .blogContent #{blog.content}
+                .blogAction 
+                    .clickButtons_small 
+                        #{blog.first_name} #{blog.last_name}, #{postDate}
+                  
+              .clr
+            
+            .reviews
+              h2 Comments (<span id="reviewCnt">#{blog.total_comments}</span>)
+              // a(href='#') SEE ALL
+              .clr
+              #reviews.reviewsContainer
+                
+              .commentForm
+                form#reviewFrm(action='#', method='post', name='reviewFrm', onsubmit='addReview(); return false;')
+                  textarea#review(name='review', onfocus='$("#review").val("");') Have a comment? Add it here
+                  input#id(type='hidden', name='id', value='#{blog.id}')
+                  input#st(type='hidden', name='st', value='#{logStatus}')
+                  input(type='submit', value='Add Comment', name='')
+            .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer
+    //

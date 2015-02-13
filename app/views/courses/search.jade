@@ -1,0 +1,112 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/CourseSearchUi.js')
+    script(type='text/javascript', src='/javascripts/uiControllers/ArtistSearchUi.js')
+    script(type='text/javascript', src='/javascripts/uiControllers/SchoolSearchUi.js')
+    script(type='text/javascript', src='/javascripts/uiControllers/EventSearchUi.js')
+    script(type='text/javascript', src='/javascripts/uiControllers/JobSearchUi.js')
+    script(type='text/javascript')
+      $(function() {
+        loadCategories();
+        var tabVal = '#{tabVal}';
+        if(!tabVal){
+            tabVal = $('#tabVal').val();
+        }
+        //alert(tabVal);
+        if(tabVal == 'course'){
+            loadCourseResults();
+        }
+        if(tabVal == 'artist'){
+            loadArtistResults();
+        }
+        if(tabVal == 'school'){
+            loadSchoolResults();
+        }
+        if(tabVal == 'events'){
+            loadEventResults();
+        }
+        if(tabVal == 'jobs'){
+            loadJobResults();
+        }
+      });
+    include ../elements/header
+    //
+      / Header
+    //
+    .search_bg
+      .container
+        include ../elements/search
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        .spacer
+        .searchContent
+          .searchContentLeft
+            .searchContentLeftContent
+              .filter
+                h2 FILTERS
+                form#filterFrm(action='#', method='post', name='filterFrm', onsubmit='return false();')
+                  .filterLeft
+                    .filterRelative
+                        select#categoryId(style='width:150px;', name='categoryId', onchange='submitFilter();')
+                            option(value='') Category
+                          
+                    .filterRelative
+                        select#ratingVal(style='width:150px;', name='ratingVal', onchange='submitFilter();')
+                            option(value='') Rating
+                            option(value='1') >1 Star
+                            option(value='2') >2 Star
+                            option(value='3') >3 Star
+                            option(value='4') >4 Star
+                            option(value='5') >5 Star
+                    .filterRelative
+                        select#reviewVal(style='width:150px;', name='reviewVal', onchange='submitFilter();')
+                            option(value='') Review
+                            option(value='1') Reviewed
+                            option(value='0') Not-Reviewed
+                    
+                     .filterRelative
+                         input#phoneVal(type='checkbox', name='phoneVal', value='1', style='margin-right: 10px;', onchange='submitFilter();')
+                         | Has phone
+                     .filterRelative
+                         input#emailVal(type='checkbox', name='emailVal', value='1', style='margin-right: 10px;', onchange='submitFilter();')
+                         | Has email
+                     .filterRelative
+                         input#websiteVal(type='checkbox', name='websiteVal', value='1', style='margin-right: 10px;', onchange='submitFilter();')
+                         | Has website
+                         
+                          
+                    
+                      input#idTab(type='hidden', value='course', name='idTab')
+                      input(type='submit', value='SEARCH', name='')
+          .searchRight
+            .tab
+              ul
+                li
+                  a#artistTab.activeTab(href='#', rel='tab_changer', onclick='loadArtistResults(); return false;') Artists
+                li
+                  a#courseTab(href='#', rel='tab_changer', onclick='loadCourseResults(); return false;') Courses
+                li
+                  a#schoolTab(href='#', rel='tab_changer', onclick='loadSchoolResults(); return false;') Schools
+                li
+                  a#eventTab(href='#', rel='tab_changer', onclick='loadEventResults(); return false;') Events
+                li
+                  a#jobTab(href='#', rel='tab_changer', onclick='loadJobResults(); return false;') Jobs
+            #course.gallery
+            .paginationWrap
+              
+              #paginator.page
+                
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer
+    //
+      

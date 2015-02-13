@@ -1,0 +1,82 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Booking.js')
+    script(type='text/javascript')
+        $(function() {
+                 setupUI(#{artistId});
+                 
+        });    
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Make a request
+                span It’s free & always will be.
+            .signupForm
+              form#bookingAddFrm( method='post', action='/bookings/doadd', name='bookingAddFrm', onsubmit='return validateBookingFrm();')
+                .signupFormRow
+                  label Course:
+                  select(name='course', id='course')
+                .signupFormRow
+                  label Booking Date:
+                  select(name='booking_year', id='booking_year', style='width:100px')
+                  -
+                  select(name='booking_month', id='booking_month', style='width:100px')
+                  -
+                  select(name='booking_date', id='booking_date', style='width:100px')
+                  input(type="hidden", name="artistId", id="artistId", value="#{artistId}")
+                  input(type="hidden", name="userId", id="userId", value="#{userId}")
+                  input(type="hidden", name="userName", id="userName", value="#{userName}")
+                  input(type="hidden", name="artistName", id="artistName", value="#{artistName}")
+                .signupFormRow
+                  label Time:
+                  select(name='booking_time1', id='booking_time1', style='width:100px')
+                    option(value='1') 01
+                    option(value='2') 02
+                    option(value='3') 03
+                    option(value='4') 04
+                    option(value='5') 05
+                    option(value='6') 06
+                    option(value='7') 07
+                    option(value='8') 08
+                    option(value='9') 09
+                    option(value='10') 10
+                    option(value='11') 11
+                    option(value='12') 12
+                  -
+                  select(name='booking_time2', id='booking_time2', style='width:100px')
+                    option(value='00') 00
+                    option(value='15') 15
+                    option(value='30') 30
+                    option(value='45') 45
+                  -
+                  select(name='booking_time3', id='booking_time3', style='width:100px')
+                    option(value='AM') AM
+                    option(value='PM') PM
+                .signupFormRow
+                  label Span:
+                  select(name='booking_time4', id='booking_time4', style='width:100px')
+                    option(value='1') 1 hr
+                    option(value='2') 2 hrs
+                    option(value='3') 3 hrs
+                    option(value='4') 4 hrs
+                  span
+                    | Admin has all the rights to deactivate the booking without any prior notice to the user. .
+                  input(type='submit', value='Post', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

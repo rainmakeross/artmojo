@@ -1,0 +1,99 @@
+extends ../layout
+
+block content
+	h1= title
+	script(type='text/javascript', src='/javascripts/uiControllers/TempArtistView.js')
+	script(type='text/javascript')
+		$(function() {
+			getCountries();
+			getCategory();
+			getSchoolList();
+			
+			$('#addListFrm').submit( function() {
+				return setSchoolNcourse();
+			});
+		});
+
+	include ../elements/header
+	Container
+		div
+			#container
+			div
+				form( method='post', action='/tempartist/add', name='addListFrm', id='addListFrm', enctype="multipart/form-data")
+					div
+						span.label First Name :
+						input(type="text", name="first_name", id="first_name")
+					div
+						span.label Last Name :
+						input(type="text", name="last_name", id="last_name")
+					div
+						span.label Picture :
+						input(type="file", name="picture", id="picture")
+					div
+						span.label About the artist :
+						input(type="text", name="description", id="description")
+					div
+						span.label Address :
+						textarea(name="address1", id="address1", rows="4", cols="25")
+						textarea(name="address2", id="address2", rows="4", cols="25")
+					div
+						span.label Country :
+						select(name='country', id='country', onchange="getState()")
+					div
+						span.label State :
+						select(name='state', id='state', onchange="getCity()")
+					div
+						span.label City :
+						select(name='city', id='city')
+					div
+						span.label Course Category :
+						select(name='category', id='category', onchange="getCourse()")
+					div
+						#courses
+						span.label Courses :
+					div
+						#schools
+						span.label Schools :
+					div
+						span.label Your email :
+						input(type="text", name="your_email", id="your_email")
+					div
+						span.label Some Notes :
+						textarea(name="notes", id="notes", rows="4", cols="25")
+					div
+						span.label Zipcode :
+						input(type="text", name="zipcode", id="zipcode")
+					div
+						span.label Email :
+						input(type="text", name="email", id="email")
+					div
+						span.label Phone :
+						input(type="text", name="phone", id="phone")
+					div
+						span.label Facebook :
+						input(type="text", name="facebook", id="facebook")
+					div
+						span.label Twitter :
+						input(type="text", name="twitter", id="twitter")
+					div
+						span.label Tumblr :
+						input(type="text", name="tumblr", id="tumblr")
+					div
+						span.label Youtube :
+						input(type="text", name="youtube", id="youtube")
+					div
+						span.label Google+ :
+						input(type="text", name="google", id="google")
+					div
+						span.label Website :
+						input(type="text", name="site", id="site")
+					div
+						input(type="hidden", name="courseHid", id="courseHid")
+					div
+						input(type="hidden", name="schoolHid", id="schoolHid")
+					div
+						input(type="submit", value="Add List")
+
+
+
+	include ../elements/footer

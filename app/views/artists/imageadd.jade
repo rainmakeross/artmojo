@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/ArtistView.js')
+    
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        include ../elements/search
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Add Image
+                span 
+            .signupForm
+              form#imageAddFrm( method='post', action='/artist/image/doaddimage', name='imageAddFrm', enctype="multipart/form-data", onsubmit='return validateImageFrm();')
+                .signupFormRow
+                  label Title:
+                  input(type="text", name="title", id="title")
+                .signupFormRow
+                  label Picture:
+                  input(type="file", name="picture", id="picture")
+                
+                  span
+                    | 
+                  input(type='submit', value='Add', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

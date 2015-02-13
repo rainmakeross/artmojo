@@ -1,0 +1,510 @@
+@charset "utf-8";
+@media only screen and (max-width: 980px) {
+  .content {
+    clear: both;
+  }
+  .searchRight {
+    max-width: 457px;
+  }
+  .tab ul li {
+    float: left;
+    margin-right: 2px;
+  }
+  .contentIn .instrument .instrumentDesc {
+    float: left;
+    padding-top: 180px;
+  }
+  .teacherDetail {
+    float: left;
+    max-width: 100%;
+    padding-top: 130px;
+  }
+  .banner .bannerText {
+    width: 45%;
+    padding: 18px 0 0 40px;
+  }
+  .featuredMentorsContainer .mentorsBox {
+    margin: 13px 12px 0 0;
+  }
+  .featuredArtFormContainer .artFormBox {
+    margin: 13px 12px 0 0;
+  }
+  .search2 {
+    width: 185px;
+  }
+}
+@media only screen and (max-width: 975px) {
+  .ourstoryRowRight {
+    float: left;
+    max-width: 100%;
+    background: none;
+    padding-left: 0px;
+    min-height: 218px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .featuredArtFormContainer .artFormBox {
+    margin: 13px 8px 0 0;
+  }
+  .featuredMentorsContainer .mentorsBox {
+    float: left;
+    width: 32%;
+    margin: 13px 8px 0 0;
+  }
+  .featuredevent {
+    width: 100%;
+    float: left;
+  }
+  .eventsection {
+    width: 100%;
+    float: right;
+  }
+  .content {
+    clear: both;
+  }
+  .filterBy {
+    float: left;
+  }
+  .courses {
+    width: 100%;
+  }
+  .schools {
+    width: 100%;
+  }
+  .video_audio_photoWrap {
+    width: 100%;
+  }
+  .videosContent ul li .video2Text {
+    padding-top: 5px;
+    width: 78%;
+  }
+  .reviews {
+    width: 100%;
+  }
+  .tab ul li {
+    float: left;
+    margin-right: 2px;
+  }
+  .searchRight {
+    max-width: 457px;
+  }
+  .page {
+    padding: 0 0 20px 0;
+  }
+  .landingPageContent h3 span {
+    line-height: 100px;
+  }
+  .landingPageContent h2 {
+    line-height: 110px;
+  }
+  .landingPageContent {
+    padding-top: 110px;
+  }
+  .comingSoon {
+    right: 50px;
+  }
+  .comingSoon2 {
+    left: -56px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .teachers ul li {
+    width: 97%;
+  }
+  .teachers ul li .teachersBttm {
+    width: 95%;
+  }
+  .search2 {
+    width: 220px;
+  }
+}
+@media only screen and (max-width: 685px) {
+  .banner .bannerText {
+    display: none;
+  }
+  .headerBottom .category {
+    float: none;
+    padding: 25px 0 0 0;
+    margin: 0 auto;
+    width: 300px;
+    clear: both;
+  }
+  .headerBottom .logo {
+    margin: 20px auto auto auto;
+    float: none;
+  }
+  .searchContentLeft {
+    width: 100%;
+    min-height: 0px;
+  }
+  .filterRight {
+    padding-bottom: 20px;
+  }
+  .filter input[type="submit"] {
+    margin: 5px 0 0 0;
+  }
+}
+@media only screen and (max-width: 568px) {
+  .search2 {
+    width: 100%;
+  }
+  .searchContentLeft {
+    float: left;
+    width: 100%;
+    min-height: 0px;
+  }
+  .bottomContainerContent .press {
+    float: left;
+    max-width: 90%;
+    padding-left: 20px;
+  }
+  .bottomContainerContent .newUser {
+    float: left;
+    max-width: 100%;
+  }
+  .bottomContainerContent .otherLinks {
+    float: left;
+    max-width: 100%;
+  }
+  .newsletter .newsletterForm input[type="text"] {
+    margin-left: 10px;
+    width: 200px;
+  }
+  .newsletter .newsletterForm input[type="submit"] {
+    margin-left: 15px;
+  }
+  .featuredArtFormContainer .artFormBox {
+    width: 100%;
+  }
+  .featuredMentorsContainer .mentorsBox {
+    width: 100%;
+  }
+  .featuredevent {
+    width: 100%;
+    float: left;
+  }
+  .eventsection {
+    width: 100%;
+    float: right;
+  }
+  .gettingStartedContainer .gettingStartedContainerLeft {
+    float: left;
+    padding: 0 0 0 0;
+    width: 100%;
+  }
+  .gettingStartedContainer .gettingStartedContainerRight {
+    float: right;
+    padding: 0 0 0 2%;
+    width: 100%;
+  }
+  .banner .bannerButtons {
+    padding: 58px 0 0 5px;
+  }
+  .contentIn .instrument .instrumentDesc .socialShare ul {
+    float: left;
+    padding-bottom: 10px;
+    margin: 0px 0 0 0;
+  }
+  .videosContent ul li .video2Text {
+    width: 100%;
+    padding-top: 10px;
+  }
+  .landingPageContent h2 {
+    line-height: 120px;
+  }
+  .landingPageContent h3 span {
+    line-height: 90px;
+  }
+  .landingPageContent {
+    padding-top: 80px;
+  }
+  .comingSoon2 {
+    left: -36px;
+  }
+  .comingSoon {
+    right: -25px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .teachers ul li {
+    width: 94%;
+  }
+  .teachers ul li .teachersBttm {
+    width: 93%;
+  }
+  .page {
+    float: left;
+  }
+  .contentIn .instrument .instrumentDesc .socialShare ul li {
+    float: left;
+    padding-right: 3px;
+  }
+  .teacherDetail {
+    padding-top: 130px;
+  }
+  .rating2 {
+    padding-top: 0px;
+    margin-top: -19px;
+  }
+  .rating2 p {
+    float: left;
+  }
+  .rating2Content {
+    clear: none;
+    float: left;
+    margin-top: 3px;
+  }
+  .contentIn .instrument .instrumentDesc .textBox p {
+    line-height: 30px;
+  }
+  .subjectDetail p {
+    padding-top: 10px;
+  }
+  .landingPageContent h2 {
+    font-size: 70px;
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 70px;
+  }
+  .landingPageContent h3 {
+    font-size: 35px;
+    font-weight: normal;
+    text-transform: uppercase;
+    padding-top: 82px;
+    clear: both;
+  }
+  .landingPageContent h3 span {
+    font-size: 55px;
+  }
+  .timer {
+    max-width: 204px;
+    margin: 0 auto;
+    padding-top: 73px;
+  }
+  .landingPageContent {
+    padding-top: 100px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .subjectTaught ul {
+    padding-left: 0px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .headerBottom .logo {
+    margin: 86px auto auto auto;
+    float: none;
+  }
+  .headerBottom .category .events {
+    width: 81px;
+    height: 91px;
+    background: #ffae00;
+    float: left;
+    border-radius: 3px;
+    text-align: center;
+    margin-right: 5px;
+  }
+  .headerBottom .category .addListing {
+    width: 81px;
+    height: 91px;
+    background: #ff8a00;
+    float: left;
+    border-radius: 3px;
+    text-align: center;
+    margin-right: 5px;
+  }
+  .headerBottom .category .addEvent {
+    width: 81px;
+    height: 91px;
+    background: #ff4800;
+    float: left;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .copyRightText {
+    width: 100%;
+    font-size: 13px;
+    margin: 0 auto;
+  }
+  .headerTop .login_signup {
+    float: right;
+    margin: 0 auto;
+    width: 83%;
+    padding-left: 5px;
+  }
+  .teachers ul li .teachersBttm {
+    width: 90%;
+  }
+  .rating {
+    float: left;
+    margin-top: 5px;
+  }
+  .filterByForm .selc4 {
+    margin: 0 44px 10px 0px;
+  }
+  .teacherDetailTopLeft h2 {
+    font-size: 34px;
+  }
+  .teacherDetail {
+    padding-top: 50px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .banner .bannerButtons input[type="text"] {
+    width: 145px !important;
+  }
+  select.select {
+    width: 173px !important;
+  }
+  span.select {
+    width: 173px;
+  }
+  span.select2 {
+    width: 173px !important;
+  }
+  select.select2 {
+    width: 173px !important;
+  }
+  .banner .bannerButtons input[type="submit"] {
+    width: 173px;
+    margin-left: 0px;
+  }
+  .headerTop .login_signup {
+    clear: both;
+    float: none;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .headerBottom .category .events,
+  .headerBottom .category .addListing,
+  .headerBottom .category .addEvent {
+    width: 60%;
+    margin-bottom: 5px;
+  }
+  .headerBottom .category .events a,
+  .headerBottom .category .addListing a,
+  .headerBottom .category .addEvent a {
+    width: 100%;
+  }
+  .newsletter .newsletterForm input[type="text"] {
+    width: 133px;
+  }
+  .searchForm input[type="text"] {
+    width: 140px;
+  }
+  span.select3 {
+    border-right: 1px #d2d3cb solid;
+    width: 181px;
+  }
+  select.select3 {
+    width: 181px;
+  }
+  .searchForm input[type="submit"] {
+    width: 181px;
+    margin-left: 0px;
+  }
+  .page {
+    float: left;
+    margin-left: -27px;
+    width: 143%;
+  }
+  .page ul li {
+    margin-right: 0px;
+  }
+  .teachers ul li .teachersTop .teacherInfo h3 {
+    line-height: 18px;
+  }
+  .videoGallery ul li {
+    width: 100%;
+  }
+  .video {
+    width: 100%;
+  }
+  .videoContainer {
+    width: 90%;
+  }
+  .videoContainer small {
+    line-height: 10px;
+  }
+  .contentIn .instrument .instrumentDesc .instrumentDescTop {
+    margin-top: -100px;
+  }
+  .rating2 {
+    padding-top: 0px;
+    margin-top: 0px;
+    clear: both;
+    float: left;
+  }
+  input[type="submit"] {
+    margin: 0 0 0 20%;
+  }
+  span.select4 {
+    border-right: 1px #d2d3cb solid;
+    position: absolute;
+    width: 150px;
+  }
+  select.select4 {
+    width: 150px !important;
+  }
+  .gallery ul li {
+    float: left;
+    width: 75%;
+  }
+  .gallery ul li .galleryContent .galleryImg {
+    width: 79% !important;
+  }
+  a.artistButton {
+    bottom: 25px;
+    left: 5px;
+  }
+  a.schoolButton {
+    bottom: -11px;
+    left: 10px;
+  }
+  .gallery ul li .galleryContent .galleryText {
+    padding-top: 25px;
+    width: 73%;
+    padding-left: 5px;
+  }
+  .gallery ul li .galleryContent .galleryText p {
+    line-height: 18px;
+  }
+  .search2 .searchText2 h2 {
+    color: #787878;
+    text-transform: lowercase;
+    font-size: 23px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-top: 0px;
+  }
+  .paginationWrap {
+    padding: 0 0 0 0;
+    clear: both;
+    width: 79%;
+  }
+  .landingPageContent h2 {
+    font-size: 110px;
+  }
+  .landingPageContent h3 {
+    font-size: 43px;
+    padding-top: 25px;
+  }
+}
+@media only screen and (max-width: 295px) {
+  .landingPageContent h2 {
+    font-size: 55px;
+  }
+  .landingPageContent h3 {
+    font-size: 27px;
+  }
+  .landingPageContent h3 span {
+    font-size: 50px;
+  }
+  .timer {
+    max-width: 103px;
+    padding-top: 10px;
+  }
+  .ourstoryHeader h2 {
+    font-size: 33px;
+  }
+}

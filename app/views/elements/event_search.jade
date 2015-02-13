@@ -1,0 +1,11 @@
+.searchForm
+          form#searchFrm(method='get', action='/events', name='searchFrm')
+            .selectWrapper
+              select#categorySrch.selectCss(name='categorySrch')
+                option(value="") All
+            .selectWrap
+                input#search_data(type='text', name='eventTitle', placeholder='What?', value= eventTitle ? eventTitle : '', onchange="setSrchTxt(this.value);", onkeyup="setSrchTxt(this.value);")
+            
+            .selectWrap
+                input#userCity(type='text', name='location', placeholder='Where?', value= location ? location : '', onchange="setLocation(this.value);", onkeyup=onchange="setLocation(this.value);")
+            input(type='Submit', value='Search Events')

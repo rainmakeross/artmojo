@@ -1,0 +1,45 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Booking.js')
+                
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .content
+          .contentIn
+            .ourstory
+              .ourstoryHeader
+                h2 Booking confirmation payment
+              p
+                landingContainer
+                    div
+                        
+                    .listDiv
+                        #paymentBlock
+                            table(border='0', cellpadding='0', cellspacing='0', style='border-collapse: collapse;')
+                                tr
+                                    td <img src='/images/paypal.jpg' />
+                                    td.paynow-td(valign='top')
+                                       table.paynow-table(border='0', cellpadding='0', cellspacing='0')
+                                          tr
+                                            td Booking date: #{fullDate}
+                                          tr
+                                            td Booking amount: #{booking.amount} USD
+                                          tr
+                                            td Artist Name: #{booking.artistName}
+                                          tr
+                                            td <img src='/images/btn_xpressCheckout.gif' onclick='window.location.href="/payments/checkout?id=#{booking.id}"' style='cursor:pointer;' />
+
+            
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/admin_table.css')
+    script(type='text/javascript', src='/javascripts/jquery.dataTables.min.js')
+    script(type='text/javascript', src='/javascripts/uiControllers/Job.js')
+    script(type='text/javascript')
+            $(function() {
+                    
+                   loadMyJobs();
+            });
+                    
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .content
+          .contentIn
+            .ourstory
+              .ourstoryHeader
+                h2 My Jobs
+              p
+                landingContainer
+                    div
+                        #add
+                           a(href="/jobs/public/add", class="clickButtons_v2") Post a job
+                    .listDiv
+                        #jobList
+
+            
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

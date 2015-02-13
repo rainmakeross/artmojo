@@ -1,0 +1,71 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Job.js')
+    script(type='text/javascript')
+        $(function() {
+                 setupUI();
+                // loadSrchCategory();
+        });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        include ../elements/search
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Post a job
+                span 
+            .signupForm
+              form#jobAddFrm( method='post', action='/jobs/doaddjob', name='jobAddFrm', onsubmit='return validateEventFrm();')
+                .signupFormRow
+                  label Job Type:
+                  select(name='job_typeId', id='job_typeId')
+                .signupFormRow
+                  label City:
+                  select(name='city', id='city')
+                .signupFormRow
+                  label Title:
+                  input(type="text", name="jobTitle", id="jobTitle")
+                  input(type="hidden", name="userId", id="userId", value='#{userId}')
+                .signupFormRow
+                  label Description:
+                  textarea(name="description", id="description", rows="4", cols="25")
+                .signupFormRow
+                  label Expiry Date:
+                  select(name='from_year', id='from_year', style='width:100px')
+                  -
+                  select(name='from_month', id='from_month', style='width:100px')
+                  -
+                  select(name='from_date', id='from_date', style='width:100px')
+                .signupFormRow
+                  label Salary:
+                  input(type="text", name="salary", id="salary")
+                .signupFormRow
+                  label Website:
+                  input(type="text", name="applicationWebsite", id="applicationWebsite")
+                .signupFormRow
+                  label Email:
+                  input(type="text", name="applicationEmail", id="applicationEmail", value='#{userEmail}')
+                .signupFormRow
+                  label Phone:
+                  input(type="text", name="applicationPhone", id="applicationPhone")
+                .signupFormRow
+                  label Address:
+                  textarea(name="applicationAddress", id="applicationAddress", rows="4", cols="25")
+                  span
+                    | 
+                  input(type='submit', value='Add', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

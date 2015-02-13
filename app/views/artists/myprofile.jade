@@ -1,0 +1,123 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/ArtistView.js')
+    script(type='text/javascript')
+      $(function() {
+        showCourses(#{artist.id}, '#{artist.first_name}');
+        showInterests(#{artist.id}, '#{artist.first_name}');
+        showSchools(#{artist.id}, '#{artist.first_name}');
+        showReviews(#{artist.id});
+        
+      });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        include ../elements/search
+        .tab2
+              ul
+                li
+                  a.activeTab(href='/users/editprofile', rel='tab_changer') Edit Profile
+                li
+                  a(href='/artists/mycredentials', rel='tab_changer') My Details
+                li
+                  a(href='/mybookings', rel='tab_changer') Booking & Transactions
+                li
+                  a(href='/users/artists/list', rel='tab_changer') My Quicklist
+        .content
+          .contentIn
+            .teacherWrap
+              .teacherImg2Wrap
+                .teacherImg2
+                  -if(artist.artist_image)
+                    -if(artist.localImg == 1)
+                        img(src='/images/artists/thumb/#{artist.artist_image}', alt='#{artist.full_name}', style='width:250px; max-height: 270px;')
+                    -else
+                        img(src='#{artist.artist_image}', alt='#{artist.full_name}', style='width:250px; max-height: 270px;')
+                  -else
+                        img(src='/images/dummy_user.gif', alt='#{artist.full_name}', style='width:250px; max-height: 270px;')
+                  br
+                  br
+                  .profile_menu
+                            a(href='/users/editlogininfo') Edit Login Info
+                  .profile_menu
+                            -if(artist.profile_status)
+                                a(href='/artists/makePrivate') Make Private
+                            -else
+                                a(href='/artists/makePublic') Make Public
+                .socialShare2
+                  
+              .teacherDetail
+                .teacherDetailTop
+                  .teacherDetailTopLeft
+                    h2 #{artist.full_name}
+                    br
+                    My Rating: #{artist.total_rate} of 5 (#{artist.total_comments} reviews posted)
+                    
+                  .rating2
+                    p 
+                    .rating2Content
+                      
+                .subjectDetail
+                  .subjectTaught
+                    h2 My Story:
+                    
+                      
+                  p
+                   -if(artist.description)
+                    | #{artist.description}
+                   -else
+                    | #{artist.full_name} specializes in #{artist.course_tag}
+                  .clr
+                .teacherDetailBottom
+                  .teacherAdress
+                    p
+                      span
+                        img(src='/images/pin_map.png', alt='')
+                      | #{artist.location}
+                    -if(artist.phone)
+                        p
+                          span
+                            img(src='/images/tel.png', alt='')
+                          | #{artist.phone}
+                    
+                    -if(artist.email)
+                        p
+                            span
+                              img(src='/images/mail1.png', alt='')
+                            a(href='mailto:#{artist.email}') #{artist.email}
+                    -if(artist.website)
+                        p
+                            span
+                              img(src='/images/icon4.png', alt='')
+                            a(href='#{artist.website}', target='_blank') My website
+                  
+              .clr
+            .courses_schools
+              #course.courses
+              #interest.interests
+              #school.schools
+                
+              .clr
+            .video_audio_photoWrap
+              //
+                video section
+                a(href='/mybookings', class="clickButtons") My Bookings
+            .reviews
+              h2 reviews (#{artist.total_comments})
+              // a(href='#') SEE ALL
+              .clr
+              #reviews.reviewsContainer
+                
+              
+            .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer
+    //

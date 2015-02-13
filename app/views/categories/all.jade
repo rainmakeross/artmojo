@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/admin_table.css')
+    script(type='text/javascript', src='/javascripts/jquery.dataTables.min.js')
+    script(type='text/javascript', src='/javascripts/uiControllers/Category.js')
+    script(type='text/javascript')
+            $(function() {
+                    
+                   loadAllCategorys();
+            });
+                    
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .content
+          .contentIn
+            .ourstory
+              .ourstoryHeader
+                h2 Categories
+              p
+                landingContainer
+                    div
+                        #add
+                           a(href="/category/publicadd", class="clickButtons_v2") Add
+                    .listDiv
+                        #categoryList
+
+            
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

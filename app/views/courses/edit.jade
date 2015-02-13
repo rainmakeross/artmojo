@@ -1,0 +1,50 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Course.js')
+    script(type='text/javascript')
+        $(function() {
+                 setupUI(#{course.categoryId});
+        });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Edit course
+                span It’s free & always will be.
+            .signupForm
+              form#courseAddFrm( method='post', action='/courses/doedit', name='courseAddFrm', enctype="multipart/form-data", onsubmit='return validateCourseFrm();')
+                .signupFormRow
+                  label Category:
+                  select(name='category', id='category')
+                .signupFormRow
+                  label Title:
+                  input(type="text", name="course_name", id="course_name", value='#{course.course_name}')
+                  input(type="hidden", name="courseId", id="courseId", value='#{course.id}')
+                .signupFormRow
+                  label Picture:
+                  input(type="file", name="picture", id="picture")
+                  input(type="hidden", name="prevImg", id="prevImg", value= course.courseTitle ? course.courseTitle : '')
+                .signupFormRow
+                  label Description:
+                  textarea(name="course_description", id="course_description", rows="4", cols="25") #{course.course_description}
+                
+                  span
+                    | 
+                  input(type='submit', value='Edit', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

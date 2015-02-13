@@ -1,0 +1,18 @@
+.banner
+      .container
+        .bannerText
+          h2
+            | Your Art
+            br
+            | Search Starts Here!
+          p
+            | Artmojo is a unique space built just for art seekers like you to find mentors, pick up a new hobby, collaborate or play in. Our goal is to turn Art mainstream... Everybody is an artist. We are here to help you find what you are looking for. 
+        .bannerButtons
+          form#searchFrm(method='post', action='/search', name='searchFrm')
+            input#search_data(type='text', name='courseName', placeholder='What?', value='', onchange="setSrchTxt(this.value);", onkeyup="setSrchTxt(this.value);")
+            .relative
+              input#userCity(type='text', name='location', placeholder='Where?', value='', onchange="setLocation(this.value); loadIndexUi(this.value);", onkeyup="setLocation(this.value); loadIndexUi(this.value);")
+            .relative2
+            input(type='submit', value='Search')
+            input#tabVal(type='hidden', name='tabVal', value='artist')
+        .clr

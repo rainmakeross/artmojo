@@ -1,0 +1,46 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/State.js')
+    script(type='text/javascript')
+        $(function() {
+                 setupUI();
+                 
+        });    
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Add state
+                span It’s free & always will be.
+            .signupForm
+              form#stateAddFrm( method='post', action='/states/doadd', name='stateAddFrm', onsubmit='return validateStateFrm();')
+                .signupFormRow
+                  label Country:
+                  select(name='country', id='country')
+                .signupFormRow
+                  label Name:
+                  input(type="text", name="name", id="name")
+                .signupFormRow
+                  label Code:
+                  input(type="text", name="abbr", id="abbr")
+                
+                  span
+                    | Admin has all the rights to deactivate the state without any prior notice to the user. .
+                  input(type='submit', value='Post', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

@@ -1,0 +1,112 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Job.js')
+    script(type='text/javascript')
+        $(function() {
+                loadSrchCategory(#{category});
+        });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        include ../elements/job_search
+        .content
+          .contentIn
+            .teacherWrap
+              .teacherImg2Wrap
+                .teacherImg2
+                  -if(job.job_image)
+                        img(src='/images/jobs/thumb/#{job.job_image}', alt='#{job.jobTitle}', style='width:250px; max-height: 270px;')
+                  -else
+                        img(src='/images/dummy-job.png', alt='#{job.jobTitle}', style='width:250px; max-height: 270px;')
+                .socialShare2
+                  
+              .teacherDetail
+                .teacherDetailTop
+                  .teacherDetailTopLeft
+                    h2 #{job.jobTitle}
+                    
+                  .rating2
+                    p 
+                    .rating2Content
+                      
+                .subjectDetail
+                  .subjectTaught
+                    h2 Job details:
+                    
+                      
+                  p
+                   -if(job.description)
+                    | #{job.description}
+                   -else
+                    | #{job.jobTitle} has no details yet
+                  .clr
+                .teacherDetailBottom
+                  .teacherAdress
+                    p
+                      span <strong>Post Date</strong> #{fullDate}
+                    p
+                      span <strong>Expiry Date</strong> #{expDate}
+
+                    -if(job.salary)
+                        p
+                          span <strong>Salary:</strong> #{job.salary}
+                    -else
+                        p
+                          span <strong>Salary:</strong> N/A
+                    -if(job.applicationAddress)
+                        p
+                          span <strong>Address:</strong> #{job.applicationAddress}
+                    -else
+                        p
+                          span <strong>Address:</strong> N/A
+                    p
+                      span
+                        img(src='/images/pin_map.png', alt='')
+                      | #{job.location}
+                    
+                    -if(job.applicationPhone)
+                        p
+                          span
+                            img(src='/images/tel.png', alt='')
+                          | #{job.applicationPhone}
+                    -else
+                        p
+                          span
+                            img(src='/images/tel.png', alt='')
+                          | N/A
+                    
+                    -if(job.applicationEmail)
+                        p
+                            span
+                              img(src='/images/mail1.png', alt='')
+                            a(href='mailto:#{job.applicationEmail}') #{job.applicationEmail}
+                    -else
+                        p
+                          span
+                            img(src='/images/mail1.png', alt='')
+                          | N/A
+                    -if(job.applicationWebsite)
+                        p
+                            span
+                              img(src='/images/icon4.png', alt='')
+                            a(href='#{website}', target='_blank') Click for job website
+                    -else
+                        p
+                          span
+                            img(src='/images/icon4.png', alt='')
+                          | N/A
+                  
+              .clr
+            
+            .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer
+    //

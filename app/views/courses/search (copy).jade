@@ -1,0 +1,96 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/CourseSearchUi.js')
+    script(type='text/javascript', src='/javascripts/uiControllers/ArtistSearchUi.js')
+    script(type='text/javascript', src='/javascripts/uiControllers/SchoolSearchUi.js')
+    script(type='text/javascript')
+      $(function() {
+        
+        var tabVal = $('#tabVal').val();
+        if(tabVal == 'course'){
+            loadCourseResults();
+        }
+        if(tabVal == 'artist'){
+            loadArtistResults();
+        }
+        if(tabVal == 'school'){
+            loadSchoolResults();
+        }
+        
+      });
+    include ../elements/header
+    //
+      / Header
+    //
+    .search_bg
+      .container
+        include ../elements/search
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        .spacer
+        .searchContent
+          .searchContentLeft
+            .searchContentLeftContent
+              .filter
+                h2 FILTERS
+                form#filterFrm(action='#', method='post', name='filterFrm', onsubmit='return false();')
+                  .filterLeft
+                    .filterRelative
+                        select#categoryId.select4(style='z-index: 10; opacity: 0;', name='categoryId', onchange='submitFilter();')
+                            option(value='') Category
+                            option(value='1') Music
+                          span.select4 Category
+                    .filterRelative
+                        select#ratingVal.select4(style='z-index: 10; opacity: 0;', name='ratingVal', onchange='submitFilter();')
+                            option(value='') Rating
+                            option(value='1') 1 Star
+                            option(value='2') 2 Star
+                            option(value='3') 3 Star
+                            option(value='4') 4 Star
+                            option(value='5') 5 Star
+                          span.select4 Rating
+                    .filterRelative
+                        select#reviewVal.select4(style='z-index: 10; opacity: 0;', name='reviewVal', onchange='submitFilter();')
+                            option(value='') Review
+                            option(value='1') Reviewed
+                            option(value='1') Not-Reviewed
+                          span.select4 Review
+                    .filterRelative
+                        select#contactVal.select4(style='z-index: 10; opacity: 0;', name='contactVal', onchange='submitFilter();')
+                            option(value='') Contact Info
+                            option(value='1') Has phone
+                            option(value='2') Has email
+                            option(value='3') Has website
+                            option(value='4') Has all
+                          span.select4 Contact Info
+                    
+                        input#idTab(type='hidden', value='course', name='idTab')
+                      input(type='submit', value='SEARCH', name='')
+          .searchRight
+            .tab
+              ul
+                li
+                  a#courseTab.activeTab(href='#', rel='tab_changer', onclick='loadCourseResults(); return false;') Courses
+                li
+                  a#artistTab(href='#', rel='tab_changer', onclick='loadArtistResults(); return false;') Artist
+                li
+                  a#schoolTab(href='#', rel='tab_changer', onclick='loadSchoolResults(); return false;') School
+            #course.gallery
+            .paginationWrap
+              
+              #paginator.page
+                
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer
+    //
+      

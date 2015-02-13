@@ -1,0 +1,81 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/EventView.js')
+    script(type='text/javascript')
+        $(function() {
+                loadSrchCategory(#{category});
+        });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        include ../elements/event_search
+        .content
+          .contentIn
+            .teacherWrap
+              .teacherImg2Wrap
+                .teacherImg2
+                  -if(event.event_image)
+                        img(src='/images/events/thumb/#{event.event_image}', alt='#{event.title}', style='width:250px; max-height: 270px;')
+                  -else
+                        img(src='/images/dummy_user.gif', alt='#{event.title}', style='width:250px; max-height: 270px;')
+                .socialShare2
+                  
+              .teacherDetail
+                .teacherDetailTop
+                  .teacherDetailTopLeft
+                    h2 #{event.title}
+                    
+                  .rating2
+                    p 
+                    .rating2Content
+                      
+                .subjectDetail
+                  .subjectTaught
+                    h2 Event details:
+                    
+                      
+                  p
+                   -if(event.description)
+                    | #{event.description}
+                   -else
+                    | #{event.title} has no details yet
+                  .clr
+                .teacherDetailBottom
+                  .teacherAdress
+                    p
+                      span <strong>Date</strong> #{fullDate}
+                    p
+                      span
+                        img(src='/images/pin_map.png', alt='')
+                      | #{event.location}
+                    -if(event.contact_phone)
+                        p
+                          span
+                            img(src='/images/tel.png', alt='')
+                          | #{event.contact_phone}
+                    
+                    -if(event.contact_email)
+                        p
+                            span
+                              img(src='/images/mail1.png', alt='')
+                            a(href='mailto:#{event.contact_email}') #{event.contact_email}
+                    -if(event.event_website)
+                        p
+                            span
+                              img(src='/images/icon4.png', alt='')
+                            a(href='#{website}', target='_blank') Click for event website
+                  
+              .clr
+            
+            .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer
+    //

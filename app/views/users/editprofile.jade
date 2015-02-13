@@ -1,0 +1,101 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/UserView.js')
+    script(type='text/javascript')
+        $(function() {
+                setupUI(#{artist.id}, 'artist', #{country}, #{state}, #{artist.cityId});
+        });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Edit Profile
+                span 
+            .signupForm
+              form#artistEditFrm( method='post', action='/artists/doedit', name='artistEditFrm', enctype="multipart/form-data", onsubmit='return validateEditFrm();')
+                .signupFormRow
+                  label First Name:
+                  input(type="text", name="first_name", id="first_name", value= artist.first_name ? artist.first_name : '')
+                  input(type="hidden", name="id", id="id", value="#{artist.id}")
+                .signupFormRow
+                  label Last Name:
+                  input(type="text", name="last_name", id="last_name", value= artist.last_name ? artist.last_name : '')
+                .signupFormRow
+                  label Country:
+                  select(name='country', id='country', onchange='changeState(this.value, null, null);')
+                .signupFormRow
+                  label State:
+                  #stateHolder
+                    select(name='state', id='state', onchange='changeCity(this.value, null);')
+                .signupFormRow
+                  label City:
+                  #cityHolder
+                    select(name='city', id='city')
+                .signupFormRow
+                  label Picture Link:
+                  input(type="text", name="artist_image", id="artist_image")
+                .signupFormRow
+                  label OR
+                  &nbsp;
+                .signupFormRow
+                  label Upload Picture:
+                  input(type="file", name="picture", id="picture")
+                .signupFormRow
+                  label Your Story:
+                  textarea(name="description", id="description", rows="4", cols="25") #{artist.description}
+                .signupFormRow
+                  label Website:
+                  input(type="text", name="website", id="website", value= artist.website ? artist.website : '')
+                .signupFormRow
+                  label Email:
+                  input(type="text", name="email", id="email", value= artist.email ? artist.email : '')
+                .signupFormRow
+                  label Phone:
+                  input(type="text", name="phone", id="phone", value= artist.phone ? artist.phone : '')
+                .signupFormRow
+                  label Address:
+                  textarea(name="address1", id="address1", rows="4", cols="25") #{artist.address1}
+                .signupFormRow
+                  label Facebook:
+                  input(type="text", name="facebook", id="facebook", value= artist.facebook ? artist.facebook : '')
+                .signupFormRow
+                  label Twitter:
+                  input(type="text", name="twitter", id="twitter", value= artist.twitter ? artist.twitter : '')
+                .signupFormRow
+                  label Tumblr:
+                  input(type="text", name="tumblr", id="tumblr", value= artist.tumblr ? artist.tumblr : '')
+                .signupFormRow
+                  label Youtube:
+                  input(type="text", name="youtube", id="youtube", value= artist.youtube ? artist.youtube : '')
+                .signupFormRow
+                  label Teaching Category:
+                  select(name='category', id='category', onchange='changeCourse(this.value, "#{artist.id}");')
+                    option(value='') All
+                .signupFormRow
+                  label Teaching Courses:
+                  #courses.checkHolder
+                .signupFormRow
+                  label Interest Category:
+                  select(name='icategory', id='icategory', onchange='changeInterest(this.value, "#{artist.id}");')
+                    option(value='') All
+                .signupFormRow
+                  label Interest Courses:
+                  #interests.checkHolder
+                  
+                  input(type='submit', value='Update', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

@@ -1,0 +1,76 @@
+!!! 5
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='description', content= meta_description)
+        meta(name='keywords', content= meta_keyword)
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='/stylesheets/custom.css')
+        link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+        link(rel='stylesheet', href='/stylesheets/bootstrap-responsive.css')
+        link(rel='stylesheet', href='/stylesheets/smoothness.css')
+        link(rel='stylesheet', href='/stylesheets/jquery.ui.autocomplete.css')
+        link(rel='stylesheet', href='/stylesheets/jPages.css')
+        link(rel='stylesheet', href='/stylesheets/jRating.jquery.css')
+        // link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700')
+        script(type='text/javascript', src='/javascripts/jquery-min.js')
+        script(type='text/javascript', src='/javascripts/jquery.ui.core.min.js')
+        script(type='text/javascript', src='/javascripts/jquery.ui.widget.min.js')
+        script(type='text/javascript', src='/javascripts/jquery.ui.position.min.js')
+        script(type='text/javascript', src='/javascripts/jquery.ui.menu.min.js')
+        script(type='text/javascript', src='/javascripts/jquery.ui.autocomplete.min.js')
+        script(type='text/javascript', src='/javascripts/jquery.cookie.js')
+        // script(type='text/javascript', src='/javascripts/crop.js')
+        script(type='text/javascript', src='/javascripts/js.js')
+        script(type='text/javascript', src='/javascripts/jPages.js')
+        script(type='text/javascript', src='/javascripts/jRating.jquery.js')
+        // script(type='text/javascript', src='/javascripts/inputJs.js') 
+        script(type='text/javascript', src='/javascripts/bootstrap.js')
+        script(type='text/javascript', src='/javascripts/uiHelper.js')
+        script(type='text/javascript', src='/javascripts/uiController.js')
+
+        script(type='text/javascript')
+            $(function() {
+                autoCompleteKeywords();
+                autoCompleteCity();
+                //data for newsletter
+                $('#nltext').data('holder',$('#nltext').attr('placeholder'));
+                $('#nltext').focusin(function(){
+                    $(this).attr('placeholder','');
+                });
+                $('#nltext').focusout(function(){
+                    $(this).attr('placeholder',$(this).data('holder'));
+                });
+                //data for What
+                $('#search_data').data('holderSD',$('#search_data').attr('placeholder'));
+                $('#search_data').focusin(function(){
+                    $(this).attr('placeholder','');
+                });
+                $('#search_data').focusout(function(){
+                    $(this).attr('placeholder',$(this).data('holderSD'));
+                });
+                //data for Where
+                $('#userCity').data('holderWh',$('#search_data').attr('placeholder'));
+                $('#userCity').focusin(function(){
+                    $(this).attr('placeholder','');
+                });
+                $('#userCity').focusout(function(){
+                    $(this).attr('placeholder',$(this).data('holderWh'));
+                });
+                
+            });
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-38434981-1']);
+            _gaq.push(['_setDomainName', 'artmojo.co']);
+            _gaq.push(['_setAllowLinker', true]);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+      body
+        block content

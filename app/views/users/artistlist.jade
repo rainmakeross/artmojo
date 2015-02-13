@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/UserView.js')
+    script(type='text/javascript')
+            $(function() {
+                    loadMyArtist();
+            });
+                    
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        include ../elements/search
+        .content
+          .contentIn
+            .ourstory
+              .ourstoryHeader
+                h2 My Quicklist >> Artists
+              p
+                landingContainer
+                    .tab2
+                        ul
+                          li
+                            a#artistTab.activeTab(href='/users/artists/list', rel='tab_changer') Artists
+                          li
+                            a#courseTab(href='/users/schools/list', rel='tab_changer') Schools
+                   .clr
+                    .listDiv
+                        #myList
+
+            
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

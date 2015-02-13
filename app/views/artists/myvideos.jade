@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/ArtistView.js')
+    script(type='text/javascript')
+            $(function() {
+                    loadMyVideos();
+            });
+                    
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        include ../elements/search
+        .content
+          .contentIn
+            .ourstory
+              .ourstoryHeader
+                h2 My Details >> Videos
+              p
+                landingContainer
+                    .tab2
+                        ul
+                          li
+                            a#artistTab(href='/artists/mycredentials', rel='tab_changer') My Credentials
+                          li
+                            a#courseTab(href='/artists/myimages', rel='tab_changer') My Images
+                          li
+                            a#schoolTab.activeTab(href='/artists/myvideos', rel='tab_changer') My Videos
+                          li
+                            a#eventTab(href='/artists/myaudios', rel='tab_changer') My Audios
+                   .clr
+                    .listDiv
+                        #add
+                           a(href="/artists/videos/public/add", class="clickButtons_v3") Add Videos
+                    .listDiv
+                        #myList
+
+            
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

@@ -1,0 +1,118 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/CourseView.js')
+    script(type='text/javascript')
+      $(function() {
+        loadSubject('#{course.subject_tag}');
+        showArtistsForCourses(#{course.id}, '#{course.course_name}');
+        showSchoolsForCourses(#{course.id}, '#{course.course_name}');
+        
+        
+      });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .container
+      .container
+        include ../elements/search
+        .content
+          .contentIn
+            .instrument
+              .instrumentImg
+                <img src='/images/courses/#{course.course_image}' alt='#{course.course_name}' style='width:250px;' />
+              .instrumentDesc
+                .instrumentDescTop
+                  h2 #{course.course_name}
+                  
+                #subjectTag.instrumentType
+                
+                  
+                 
+                .clr
+                .instrumentText
+                  p
+                    | #{course.course_description}
+              .clr
+            .artist
+              h2 artist
+              .clr
+              .artistContent
+                .artistContentTop
+                  h3
+                    | Following artists teach "
+                    strong #{course.course_name}
+                    | "
+                  .filterBy
+                    p Filter by
+                    .filterByForm
+                      form#artistFilter(action='#', method='post', name='artistFilter', onsubmit='return false;')
+                        input#aCourseId(type='hidden', name='aCourseId', value= course.id)
+                        input#aCourseName(type='hidden', name='aCourseName', value= course.course_name)
+                        select#rateArtist.selc1( name="rateArtist", onchange="submitArtistFilter();")
+                          option(value='') Rating
+                          option(value='1') 1
+                          option(value='2') 2
+                          option(value='3') 3
+                          option(value='4') 4
+                          option(value='5') 5
+                        select#reviewArtist.selc2( name="reviewArtist", onchange="submitArtistFilter();")
+                          option(value='') Review
+                          option(value='1') Reviewed
+                          option(value='0') Not Reviewed
+                        input#innerLocArtist(type='text', name='innerLocArtist', placeholder="Input city", class="selc3", onkeyup="fireArtistSearch(this.value);")
+                        select#contactArtist.selc5( name="contactArtist",  style="width:110px;", onchange="submitArtistFilter();")
+                          option(value='') Contact info
+                          option(value='1') Has phone
+                          option(value='2') Has email
+                          option(value='3') Has website
+                          option(value='4') Has all
+                    .clr
+                  #artist
+            .artist
+              h2 school
+              .clr
+              .artistContent
+                .artistContentTop
+                  h3
+                    | Following schools teach "
+                    strong #{course.course_name}
+                    | "
+                  .filterBy
+                    p Filter by
+                    .filterByForm
+                      form#schoolFilter(action='#', method='post', name='schoolFilter', onsubmit='return false;')
+                        input#sCourseId(type='hidden', name='sCourseId', value= course.id)
+                        input#sCourseName(type='hidden', name='sCourseName', value= course.course_name)
+                        select#rateSchool.selc1( name="rateSchool", onchange="submitSchoolFilter();")
+                          option(value='') Rating
+                          option(value='1') 1
+                          option(value='2') 2
+                          option(value='3') 3
+                          option(value='4') 4
+                          option(value='5') 5
+                        select#reviewSchool.selc2( name="reviewSchool", onchange="submitSchoolFilter();")
+                          option(value='') Review
+                          option(value='1') Reviewed
+                          option(value='0') Not Reviewed
+                        input#innerLocSchool(type='text', name='innerLocSchool', placeholder="Input city", class="selc3", onkeyup="fireSchoolSearch(this.value);")
+                        select#contactSchool.selc5( name="contactSchool",  style="width:110px;", onchange="submitSchoolFilter();")
+                          option(value='') Contact info
+                          option(value='1') Has phone
+                          option(value='2') Has email
+                          option(value='3') Has website
+                          option(value='4') Has all
+                    .clr
+                #school
+            //
+                Video will come here
+            .clr
+    //
+      / Container
+    
+    include ../elements/footer
+    //
+      / Footer
+    //

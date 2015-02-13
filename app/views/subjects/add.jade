@@ -1,0 +1,44 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Subject.js')
+    script(type='text/javascript')
+        $(function() {
+                 setupUI();
+                 
+        });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Add subject
+                span It’s free & always will be.
+            .signupForm
+              form#subjectAddFrm( method='post', action='/subjects/doadd', name='subjectAddFrm', enctype="multipart/form-data", onsubmit='return validateSubjectFrm();')
+                .signupFormRow
+                  label Course:
+                  select(name='course', id='course')
+                .signupFormRow
+                  label Title:
+                  input(type="text", name="subject_name", id="subject_name")
+                
+                
+                  span
+                    | Admin has all the rights to deactivate the subject without any prior notice to the user. .
+                  input(type='submit', value='Post', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

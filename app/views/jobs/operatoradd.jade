@@ -1,0 +1,92 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Job.js')
+    script(type='text/javascript')
+        $(function() {
+                 setupUI();
+                 
+        });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Post a job
+                span It’s free & always will be.
+            .signupForm
+              form#jobAddFrm( method='post', action='/jobs/doaddjobop', name='jobAddFrm', enctype="multipart/form-data", onsubmit='return validateJobOpFrm();')
+                .signupFormRow
+                  label Category:
+                  select(name='category', id='category')
+                .signupFormRow
+                  label Job Type:
+                  select(name='job_typeId', id='job_typeId')
+                .signupFormRow
+                  label Country:
+                  select(name='country', id='country', onchange='changeState(this.value);')
+                .signupFormRow
+                  label State:
+                  #stateHolder
+                    select(name='state', id='state', onchange='changeCity(this.value);')
+                .signupFormRow
+                  label City:
+                  #cityHolder
+                    select(name='city', id='city')
+                .signupFormRow
+                  label Title:
+                  input(type="text", name="jobTitle", id="jobTitle")
+                  input(type="hidden", name="userId", id="userId", value='#{userId}')
+                  input(type="hidden", name="operator", id="operator", value='#{operator}')
+                .signupFormRow
+                  label Picture Link:
+                  input(type="text", name="job_image", id="job_image")
+                .signupFormRow
+                  label OR
+                  &nbsp;
+                .signupFormRow
+                  label Upload Picture:
+                  input(type="file", name="picture", id="picture")
+                .signupFormRow
+                  label Description:
+                  textarea(name="description", id="description", rows="4", cols="25")
+                .signupFormRow
+                  label Expiry Date:
+                  select(name='from_year', id='from_year', style='width:100px')
+                  -
+                  select(name='from_month', id='from_month', style='width:100px')
+                  -
+                  select(name='from_date', id='from_date', style='width:100px')
+                .signupFormRow
+                  label Salary:
+                  input(type="text", name="salary", id="salary")
+                .signupFormRow
+                  label Website:
+                  input(type="text", name="applicationWebsite", id="applicationWebsite")
+                .signupFormRow
+                  label Email:
+                  input(type="text", name="applicationEmail", id="applicationEmail", value='#{userEmail}')
+                .signupFormRow
+                  label Phone:
+                  input(type="text", name="applicationPhone", id="applicationPhone")
+                .signupFormRow
+                  label Address:
+                  textarea(name="applicationAddress", id="applicationAddress", rows="4", cols="25")
+                  span
+                    | Admin has all the rights to deactivate the job without any prior notice to the user. .
+                  input(type='submit', value='Post', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

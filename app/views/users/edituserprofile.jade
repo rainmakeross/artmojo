@@ -1,0 +1,47 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/UserView.js')
+    
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Edit Profile
+                span 
+            .signupForm
+              form#userEditFrm( method='post', action='/users/doedit', name='userEditFrm')
+                .signupFormRow
+                  label First Name:
+                  input(type="text", name="first_name", id="first_name", value= user.first_name ? user.first_name : '')
+                  input(type="hidden", name="id", id="id", value="#{artistId}")
+                  input(type="hidden", name="user_typeId", id="user_typeId", value="#{user.user_typeId}")
+                  input(type="hidden", name="is_newsletter", id="is_newsletter", value="#{user.is_newsletter}")
+                .signupFormRow
+                  label Last Name:
+                  input(type="text", name="last_name", id="last_name", value= user.last_name ? user.last_name : '')
+                .signupFormRow
+                  label Email:
+                  input(type="text", name="email", id="email", value= user.email ? user.email : '')
+                .signupFormRow
+                  label Password:
+                  input(type="text", name="password", id="password", value= user.password ? user.password : '')
+                
+                  span
+                    | 
+                  input(type='submit', value='Update', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

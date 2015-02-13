@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Blog.js')
+    script(type='text/javascript')
+            $(function() {
+                    loadBlog(#{userId});
+            });
+
+                    
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        include ../elements/search
+        .content
+          .contentIn
+            .ourstory
+              .ourstoryHeader
+                h2 Artmojo Blogs
+              p
+                landingContainer
+                    div
+                        #add
+                           a(href="/blogs/public/add", class="clickButtons_v2") Start your blog
+                    .listDiv
+                        #blogList
+
+            
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

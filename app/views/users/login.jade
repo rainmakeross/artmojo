@@ -1,0 +1,52 @@
+extends ../layout
+
+block content
+    script(type='text/javascript')
+        $(function() {
+            if(#{alert}){
+                alert('#{message}');
+                window.location.href = '/login';
+            }
+        });
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Sign in to Artmojo
+                
+            .signupForm
+              form( method='post', action='/users/dologin', name='loginFrm', onsubmit='return validateLogin();')
+                .signupFormRow
+                  label Email:
+                  input(type='text', value='', name="email", id="email", placeholder="Input Email")
+                .signupFormRow
+                  label Password:
+                  input(type="password", name="password", id="password", placeholder="Input Password")
+                .signupFormRow
+                  .btnSpace
+                        input(type='submit', value='Login', name='')
+                  .remChkBox
+                        input(type='checkbox', value='yes', name='remember_me', id='remember_me')
+                  .rmTextRight Keep me logged in
+                 .empty2
+                 .frdtPasswordText
+                    a(href='/resetpassword') Forgot your password?
+                    br 
+                    br
+                    a(href='/signup') New to Artmojo? Sign up today
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

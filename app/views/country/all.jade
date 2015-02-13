@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Country.js')
+    script(type='text/javascript')
+            $(function() {
+                    
+                   loadAllCountrys();
+            });
+                    
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .content
+          .contentIn
+            .ourstory
+              .ourstoryHeader
+                h2 Countries
+              p
+                landingContainer
+                    div
+                        #add
+                           a(href="/country/publicadd", class="clickButtons_v2") Add
+                    .listDiv
+                        #countryList
+
+            
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

@@ -1,0 +1,114 @@
+#paginator {
+  margin: 15px 0;
+}
+#paginator a {
+  font-size: 12px;
+  cursor: pointer;
+  margin: 0 5px;
+  color: #333;
+}
+#paginator a:hover {
+  background-color: #222;
+  color: #fff;
+}
+#paginator a.jp-previous {
+  margin-right: 15px;
+}
+#paginator a.jp-next {
+  margin-left: 15px;
+}
+#paginator a.jp-current,
+a.jp-current:hover {
+  color: #FF4242;
+  font-weight: bold;
+}
+#paginator a.jp-disabled,
+a.jp-disabled:hover {
+  color: #bbb;
+}
+#paginator a.jp-current,
+a.jp-current:hover,
+#paginator a.jp-disabled,
+a.jp-disabled:hover {
+  cursor: default;
+  background: none;
+}
+#paginator span {
+  margin: 0 5px;
+}
+#artistPaginator {
+  margin: 15px 0;
+}
+#artistPaginator a {
+  font-size: 12px;
+  cursor: pointer;
+  margin: 0 5px;
+  color: #333;
+}
+#artistPaginator a:hover {
+  background-color: #222;
+  color: #fff;
+}
+#artistPaginator a.jp-previous {
+  margin-right: 15px;
+}
+#artistPaginator a.jp-next {
+  margin-left: 15px;
+}
+#artistPaginator a.jp-current,
+a.jp-current:hover {
+  color: #FF4242;
+  font-weight: bold;
+}
+#artistPaginator a.jp-disabled,
+a.jp-disabled:hover {
+  color: #bbb;
+}
+#artistPaginator a.jp-current,
+a.jp-current:hover,
+#artistPaginator a.jp-disabled,
+a.jp-disabled:hover {
+  cursor: default;
+  background: none;
+}
+#artistPaginator span {
+  margin: 0 5px;
+}
+#schoolPaginator {
+  margin: 15px 0;
+}
+#schoolPaginator a {
+  font-size: 12px;
+  cursor: pointer;
+  margin: 0 5px;
+  color: #333;
+}
+#schoolPaginator a:hover {
+  background-color: #222;
+  color: #fff;
+}
+#schoolPaginator a.jp-previous {
+  margin-right: 15px;
+}
+#schoolPaginator a.jp-next {
+  margin-left: 15px;
+}
+#schoolPaginator a.jp-current,
+a.jp-current:hover {
+  color: #FF4242;
+  font-weight: bold;
+}
+#schoolPaginator a.jp-disabled,
+a.jp-disabled:hover {
+  color: #bbb;
+}
+#schoolPaginator a.jp-current,
+a.jp-current:hover,
+#schoolPaginator a.jp-disabled,
+a.jp-disabled:hover {
+  cursor: default;
+  background: none;
+}
+#schoolPaginator span {
+  margin: 0 5px;
+}

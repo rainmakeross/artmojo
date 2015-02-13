@@ -1,0 +1,49 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Course.js')
+    script(type='text/javascript')
+        $(function() {
+                 setupUI();
+                 
+        });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Add course
+                span It’s free & always will be.
+            .signupForm
+              form#courseAddFrm( method='post', action='/courses/doadd', name='courseAddFrm', enctype="multipart/form-data", onsubmit='return validateCourseFrm();')
+                .signupFormRow
+                  label Category:
+                  select(name='category', id='category')
+                .signupFormRow
+                  label Title:
+                  input(type="text", name="course_name", id="course_name")
+                .signupFormRow
+                  label Picture:
+                  input(type="file", name="picture", id="picture")
+                .signupFormRow
+                  label Description:
+                  textarea(name="course_description", id="course_description", rows="4", cols="25")
+                
+                  span
+                    | Admin has all the rights to deactivate the course without any prior notice to the user. .
+                  input(type='submit', value='Post', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

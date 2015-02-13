@@ -1,0 +1,46 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Job.js')
+    script(type='text/javascript')
+            $(function() {
+                    
+                   /* //loadLocation();
+                    var jobLocation = "#{location}";
+                    if(!jobLocation){
+                        jobLocation = $('#userCity').val();
+                    }
+                    loadSrchCategory(#{category});
+                    loadLocationNCreateJobIndex(#{category});
+                    loadSrchTxt();*/
+                    loadAllJobs();
+            });
+                    
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        / include ../elements/job_search_index
+        .content
+          .contentIn
+            .ourstory
+              .ourstoryHeader
+                h2 Artmojo Jobs
+              p
+                landingContainer
+                    div
+                        #add
+                           a(href="/jobs/public/add", class="clickButtons_v2") Post a job
+                    .listDiv
+                        #jobList
+
+            
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

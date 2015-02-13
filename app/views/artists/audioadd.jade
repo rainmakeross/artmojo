@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/ArtistView.js')
+    
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        include ../elements/search
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Add Audio
+                span 
+            .signupForm
+              form#audioAddFrm( method='post', action='/artist/audio/doaddaudio', name='audioAddFrm', enctype="multipart/form-data", onsubmit='return validateAudioFrm();')
+                .signupFormRow
+                  label Title:
+                  input(type="text", name="title", id="title")
+                .signupFormRow
+                  label Cover:
+                  input(type="file", name="picture", id="picture")
+                .signupFormRow
+                  label Audio:
+                  input(type="file", name="audio", id="audio")
+                  span
+                    | 
+                  input(type='submit', value='Add', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

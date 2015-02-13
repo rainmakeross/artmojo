@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/admin_table.css')
+    script(type='text/javascript', src='/javascripts/jquery.dataTables.min.js')
+    script(type='text/javascript', src='/javascripts/uiControllers/Transaction.js')
+    script(type='text/javascript')
+            $(function() {
+                    
+                   loadAllTransactions();
+            });
+                    
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .content
+          .contentIn
+            .ourstory
+              .ourstoryHeader
+                h2 Transactions
+              p
+                landingContainer
+                    div
+                        
+                    .listDiv
+                        #transactionList
+
+            
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

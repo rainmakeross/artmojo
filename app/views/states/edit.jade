@@ -1,0 +1,45 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/State.js')
+    script(type='text/javascript')
+        $(function() {
+                 setupUI(#{state.countryId});
+        });    
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Edit state
+                span It’s free & always will be.
+            .signupForm
+              form#stateAddFrm( method='post', action='/states/doedit', name='stateAddFrm', onsubmit='return validateStateFrm();')
+                .signupFormRow
+                  label Country:
+                  select(name='country', id='country')
+                .signupFormRow
+                  label Name:
+                  input(type="text", name="name", id="name", value="#{state.name}")
+                  input(type="hidden", name="id", id="id", value="#{state.id}")
+                .signupFormRow
+                  label Code:
+                  input(type="text", name="abbr", id="abbr", value="#{state.abbr}")
+                  span
+                    | Admin has all the rights to deactivate the state without any prior notice to the user. .
+                  input(type='submit', value='Edit', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

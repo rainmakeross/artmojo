@@ -1,0 +1,37 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Booking.js')
+        
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Edit booking
+                span It’s free & always will be.
+            .signupForm
+              form#bookingAddFrm( method='post', action='/booking/doedit', name='bookingAddFrm', onsubmit='return validateBookingFrm();')
+                
+                .signupFormRow
+                  label Name:
+                  input(type="text", name="name", id="name", value="#{booking.name}")
+                  input(type="hidden", name="id", id="id", value="#{booking.id}")
+                  span
+                    | Admin has all the rights to deactivate the booking without any prior notice to the user. .
+                  input(type='submit', value='Edit', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

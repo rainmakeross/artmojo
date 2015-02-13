@@ -1,0 +1,53 @@
+extends ../layout
+
+block content
+    script(type='text/javascript')
+        $(function() {
+            if(#{alert}){
+                alert('#{message}');
+                window.location.href = '/login';
+            }
+        });
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Sign up
+                span It’s free & always will be.
+            .signupForm
+              form( method='post', action='#', name='signupFrm', id='signupFrm', onsubmit='doSignup(); return false;')
+                .signupFormRow
+                  label First Name:
+                  input(type="text", name="first_name", id="first_name", placeholder="Input your first name")
+                  input(type="hidden", name="artistId", id="artistId", value="#{artistId}")
+                  input(type="hidden", name="artistEmail", id="artistEmail", value="#{artistEmail}")
+                .signupFormRow
+                  label Last Name:
+                  input(type="text", name="last_name", id="last_name", placeholder="Input your last name")
+                .signupFormRow
+                  label Your Email:
+                  input(type="text", name="semail", id="semail", placeholder="Input your email")
+                .signupFormRow
+                  label Password:
+                  input(type="password", name="spassword", id="spassword", placeholder="Choose a password")
+                .signupFormRow
+                  label Retype Password:
+                  input(type="password", name="rpassword", id="rpassword", placeholder="Retype to confirm password")
+                  
+                  input(type='submit', value='Sign Up Today!', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

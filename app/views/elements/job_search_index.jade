@@ -1,0 +1,11 @@
+.searchForm
+          form#searchFrm(method='get', action='/jobs', name='searchFrm')
+            .selectWrapper
+              select#categorySrch.selectCss(name='categorySrch', onchange='loadJobIndex(this.value);')
+                option(value="") All
+            .selectWrap
+                input#search_data(type='text', name='jobTitle', placeholder='What?', value= jobTitle ? jobTitle : '', onchange="setSrchTxt(this.value);", onkeyup="setSrchTxt(this.value);")
+            
+            .selectWrap
+                input#userCity(type='text', name='location', placeholder='Where?', value= location ? location : '', onchange="setLocation(this.value); loadJobIndex(null);", onkeyup="setLocation(this.value); loadJobIndex(null);")
+            input(type='Submit', value='Search Jobs')

@@ -1,0 +1,54 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/User.js')
+    script(type='text/javascript')
+        $(function() {
+                $("#user_typeId").val(#{user.user_typeId});
+        });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Edit user
+                span It’s free & always will be.
+            .signupForm
+              form#userAddFrm( method='post', action='/users/doeditlist', name='userAddFrm', onsubmit='return validateUserFrm();')
+                .signupFormRow
+                    label Type:
+                    select(name='user_typeId', id='user_typeId')
+                        option(value='2') Artist
+                        option(value='1') Admin
+                        option(value='3') Operator
+                .signupFormRow
+                    label First Name:
+                    input(type="text", name="first_name", id="first_name", value="#{user.first_name}")
+                    input(type="hidden", name="id", id="id", value="#{user.id}")
+                .signupFormRow
+                    label Last Name:
+                    input(type="text", name="last_name", id="last_name", value="#{user.last_name}")
+                .signupFormRow
+                    label Email:
+                    input(type="text", name="email", id="email", value="#{user.email}")
+                .signupFormRow
+                  label Password:
+                  input(type="text", name="password", id="password", value="#{user.password}")
+                  span
+                    | Admin has all the rights to deactivate the user without any prior notice to the user. .
+                  input(type='submit', value='Edit', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

@@ -1,0 +1,36 @@
+.headerOut
+      .container
+        .headerTop
+          h2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          .login_signup
+            ul
+              -if(!loggedUser)
+                li.logout
+                  a(href='/login') Sign In
+                li.signup
+                  a(href='/signup') Sign Up
+                
+               -else
+                li.logout
+                  a(href='/logout') Logout
+                li.signup
+                  a(href='/profile') My Profile
+        .headerBottom
+          .logo
+            a(href='/') <img src="/images/logo.png" alt="Artmojo logo" />
+          .category
+            .events
+              a(href='/events')
+                img(src='/images/icon1.png', alt='Events', style='padding-left:10px;')
+                p(style='padding-left:6px;') &nbsp;Events
+            .events
+              a(href='/blogs')
+                img(src='/images/icon1.png', alt='Blogs', style='padding-left:10px;')
+                p(style='padding-left:6px;') &nbsp;Blogs
+            .events
+              a(href='/jobs')
+                img(src='/images/icon1.png', alt='Jobs', style='padding-left:10px;')
+                p(style='padding-left:6px;') &nbsp;Jobs
+            
+        .clr
+    .headerShadow

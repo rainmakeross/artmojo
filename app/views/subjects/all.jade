@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/admin_table.css')
+    script(type='text/javascript', src='/javascripts/jquery.dataTables.min.js')
+    script(type='text/javascript', src='/javascripts/uiControllers/Subject.js')
+    script(type='text/javascript')
+            $(function() {                    
+                   
+                    loadAllSubjects();
+            });
+                    
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .content
+          .contentIn
+            .ourstory
+              .ourstoryHeader
+                h2 Subjects
+              p
+                landingContainer
+                    div
+                        #add
+                           a(href="/subjects/public/add", class="clickButtons_v2") Add Subject
+                    .listDiv
+                        #subjectList
+
+            
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

@@ -1,0 +1,44 @@
+extends ../layout
+
+block content
+    
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Contact Us
+                // span It’s free & always will be.
+            .signupForm
+              form( method='post', action='#', name='contactFrm', id='contactFrm', onsubmit='doContact(); return false;')
+                
+                .signupFormRow
+                  label Name:
+                  input(type="text", name="full_name", id="full_name", placeholder="Input your name")
+                .signupFormRow
+                  label Email:
+                  input(type="text", name="semail", id="semail", placeholder="Input your email")
+                .signupFormRow
+                  label Subject:
+                  input(type="text", name="subject", id="subject", placeholder="Input the reason of contacting us.")
+                .signupFormRow
+                  label Message:
+                  textarea(name="message", id="message", rows="4", cols="25") 
+                
+                  
+                  input(type='submit', value='Contact Us!', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

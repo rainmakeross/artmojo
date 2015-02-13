@@ -1,0 +1,90 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Event.js')
+    script(type='text/javascript')
+        $(function() {
+                setupUI();
+        });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Add Event
+                span It’s free & always will be.
+            .signupForm
+              form#eventAddFrm( method='post', action='/events/doaddeventop', name='eventAddFrm', enctype="multipart/form-data", onsubmit='return validateEventOpFrm();')
+                .signupFormRow
+                  label Category:
+                  select(name='category', id='category')
+                .signupFormRow
+                  label Country:
+                  select(name='country', id='country', onchange='changeState(this.value);')
+                .signupFormRow
+                  label State:
+                  #stateHolder
+                    select(name='state', id='state', onchange='changeCity(this.value);')
+                .signupFormRow
+                  label City:
+                  #cityHolder
+                    select(name='city', id='city')
+                .signupFormRow
+                  label Title:
+                  input(type="text", name="title", id="title")
+                .signupFormRow
+                  label Picture Link:
+                  input(type="text", name="event_image", id="event_image")
+                .signupFormRow
+                  label OR
+                  &nbsp;
+                .signupFormRow
+                  label Upload Picture:
+                  input(type="file", name="picture", id="picture")
+                .signupFormRow
+                  label Description:
+                  textarea(name="description", id="description", rows="4", cols="25")
+                .signupFormRow
+                  label From:
+                  select(name='from_year', id='from_year', style='width:100px')
+                  -
+                  select(name='from_month', id='from_month', style='width:100px')
+                  -
+                  select(name='from_date', id='from_date', style='width:100px')
+                .signupFormRow
+                  label To:
+                  select(name='to_year', id='to_year', style='width:100px')
+                  -
+                  select(name='to_month', id='to_month', style='width:100px')
+                  -
+                  select(name='to_date', id='to_date', style='width:100px')
+                .signupFormRow
+                  label Website:
+                  input(type="text", name="event_website", id="event_website")
+                .signupFormRow
+                  label Email:
+                  input(type="text", name="contact_email", id="contact_email")
+                .signupFormRow
+                  label Phone:
+                  input(type="text", name="contact_phone", id="contact_phone")
+                .signupFormRow
+                  label Address:
+                  textarea(name="contact_address", id="contact_address", rows="4", cols="25")
+                  span
+                    | Admin has all the rights to deactivate the event without any prior notice to the user. .
+                  input(type='submit', value='Add', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

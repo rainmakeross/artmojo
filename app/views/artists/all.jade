@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/admin_table.css')
+    script(type='text/javascript', src='/javascripts/jquery.dataTables.min.js')
+    script(type='text/javascript', src='/javascripts/uiControllers/Artist.js')
+    script(type='text/javascript')
+            $(function() {                    
+                   
+                    loadAllArtists();
+            });
+                    
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .content
+          .contentIn
+            .ourstory
+              .ourstoryHeader
+                h2 Artists
+              p
+                landingContainer
+                    div
+                        #add
+                           a(href="/artists/operator/add", class="clickButtons_v2") Add Artist
+                    .listDiv
+                        #artistList
+
+            
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

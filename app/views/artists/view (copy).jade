@@ -1,0 +1,125 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/ArtistView.js')
+    script(type='text/javascript')
+      $(function() {
+        showCourses(#{artist.id}, '#{artist.first_name}');
+        showInterests(#{artist.id}, '#{artist.first_name}');
+        showSchools(#{artist.id}, '#{artist.first_name}');
+        showReviews(#{artist.id});
+        $(".basic").jRating({
+            bigStarsPath: '/images/stars.png',
+            smallStarsPath: '/images/small.png',
+            serverPath: '/artists/rating',
+            step:true,
+            length : 5, // nb of stars
+            showRateInfo: false,
+            extraParam: #{artist.id}
+          });
+      });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        include ../elements/search
+        .content
+          .contentIn
+            .teacherWrap
+              .teacherImg2Wrap
+                .teacherImg2
+                  -if(artist.artist_image)
+                    -if(artist.localImg == 1)
+                        img(src='/images/artists/thumb/#{artist.artist_image}', alt='#{artist.full_name}', style='width:250px; max-height: 270px;')
+                    -else
+                        img(src='#{artist.artist_image}', alt='#{artist.full_name}', style='width:250px; max-height: 270px;')
+                  -else
+                        img(src='/images/dummy_user.gif', alt='#{artist.full_name}', style='width:250px; max-height: 270px;')
+                .socialShare2
+                  
+              .teacherDetail
+                .teacherDetailTop
+                  .teacherDetailTopLeft
+                    h2 #{artist.full_name}
+                    br
+                    <div class="basic" data-average="#{totalRate}" data-id="#{artist.id}"></div>
+                    -if(!loggedUser)
+                        br
+                        .button
+                            a(href='/artists/public/chooseaction?url=#{artist.url}', class="clickButtons") Is this you?
+                        .button
+                            a(href='#', onclick="addtolistartist('#{artist.id}'); return false;", class="clickButtons_v3") Save to list
+                    -else
+                        br
+                        .button
+                            a(href='#', onclick="addtolistartist('#{artist.id}'); return false;", class="clickButtons_v3") Save to list
+                  .rating2
+                    p 
+                    .rating2Content
+                      
+                .subjectDetail
+                  .subjectTaught
+                    h2 My Story:
+                    
+                      
+                  p
+                   -if(artist.description)
+                    | #{artist.description}
+                   -else
+                    | #{artist.full_name} specializes in #{artist.course_tag}
+                  .clr
+                .teacherDetailBottom
+                  .teacherAdress
+                    p
+                      span
+                        img(src='/images/pin_map.png', alt='')
+                      | #{artist.present_location}
+                    -if(artist.phone)
+                        p
+                          span
+                            img(src='/images/tel.png', alt='')
+                          | #{artist.phone}
+                    
+                    -if(artist.email)
+                        p
+                            span
+                              img(src='/images/mail1.png', alt='')
+                            a(href='mailto:#{artist.email}') Click to email artist
+                    -if(artist.website)
+                        p
+                            span
+                              img(src='/images/icon4.png', alt='')
+                            a(href='#{website}', target='_blank') Click for artist website
+                  
+              .clr
+            .courses_schools
+              #course.courses
+              #interest.interests 
+              #school.schools
+                
+              .clr
+            .video_audio_photoWrap
+              //
+                video section
+            .reviews
+              h2 reviews (<span id="reviewCnt">#{artist.total_comments}</span>)
+              // a(href='#') SEE ALL
+              .clr
+              #reviews.reviewsContainer
+                
+              .commentForm
+                form#reviewFrm(action='#', method='post', name='reviewFrm', onsubmit='addReview(); return false;')
+                  textarea#review(name='review', onfocus='$("#review").val("");') Have a comment? Add it here
+                  input#id(type='hidden', name='id', value='#{artist.id}')
+                  input#st(type='hidden', name='st', value='#{logStatus}')
+                  input(type='submit', value='Add Comment', name='')
+            .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer
+    //

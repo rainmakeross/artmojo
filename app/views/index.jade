@@ -1,0 +1,108 @@
+extends layout
+
+block content
+    script(type='text/javascript')
+      $(function() {
+        //loadMentors();
+        //loadSchools();
+        //loadCourses();
+        loadLocationNCreateUi();
+        loadSrchTxt();
+        //loadEvents();
+        //loadJobs();
+      });
+    include elements/header
+    //
+      / Header
+    //
+      Banner
+    include elements/banner
+    //
+      / Banner
+    //
+      Featured Artists
+    .featuredMentors
+      .container
+        .featuredMentorsContainer
+          .featuredMentorsHeader
+            h2 Featured Artists
+            a(href='/artists') see all
+            .clr
+          #indexMentors
+          .clr
+    //
+      Featured Schools
+    .featuredSchools
+      .container
+        .featuredSchoolsContainer
+          .featuredSchoolsHeader
+            h2 Featured Schools
+            a(href='/schools') see all
+            .clr
+          #indexSchools
+          .clr
+    //
+      Featured ArtForms
+    .featuredArtForm
+      .container
+        .featuredArtFormContainer
+          .featuredArtformHeader
+            h2 Featured art forms
+            a(href='/courses') see all 
+            .clr
+          #indexCourses
+          .clr
+    //
+      Events
+    .eventIndex
+      .container
+        .eventIndexContainer
+          .featuredevent
+            .eventIndexHeader
+              h2 featured event
+              .clr
+            .eventListContainer
+              .featuredevt
+                #mainEvent.search
+                  
+                  .clr
+              .clr
+          .eventsection
+            .eventIndexHeader
+              h2 Events
+              a.eventhead(href='/events') see all
+              .clr
+            .eventListContainer
+              #leftEvents
+                
+              .clr
+          .clr
+     //
+      Jobs
+    .jobIndex
+      .container
+        .jobIndexContainer
+          .featuredjob
+            .jobIndexHeader
+              h2 featured job
+              .clr
+            .jobListContainer
+              .featuredevt
+                #mainJob.search
+                  
+                  .clr
+              .clr
+          .jobsection
+            .jobIndexHeader
+              h2 Jobs
+              a.jobhead(href='/jobs') see all
+              .clr
+            .jobListContainer
+              #leftJobs
+                
+              .clr
+          .clr
+      
+    include elements/footer
+    //
+      / Footer

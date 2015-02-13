@@ -1,0 +1,93 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/SchoolEdit.js')
+    script(type='text/javascript')
+        $(function() {
+                setupUI(#{school.id}, 'school', #{country}, #{state}, #{school.cityId});
+        });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Edit School
+                span 
+            .signupForm
+              form#schoolEditFrm( method='post', action='/schools/doeditop', name='schoolEditFrm', enctype="multipart/form-data", onsubmit='return validateEditFrm();')
+                .signupFormRow
+                  label First Name:
+                  input(type="text", name="school_name", id="school_name", value= school.school_name ? school.school_name : '')
+                  input(type="hidden", name="id", id="id", value="#{school.id}")
+                .signupFormRow
+                  label Country:
+                  select(name='country', id='country', onchange='changeState(this.value, null, null);')
+                .signupFormRow
+                  label State:
+                  #stateHolder
+                    select(name='state', id='state', onchange='changeCity(this.value, null);')
+                .signupFormRow
+                  label City:
+                  #cityHolder
+                    select(name='city', id='city')
+                .signupFormRow
+                  label Picture Link:
+                  input(type="text", name="school_image", id="school_image")
+                .signupFormRow
+                  label OR
+                  &nbsp;
+                .signupFormRow
+                  label Upload Picture:
+                  input(type="file", name="picture", id="picture")
+                
+                .signupFormRow
+                  label Your Story:
+                  textarea(name="description", id="description", rows="4", cols="25") #{school.description}
+                .signupFormRow
+                  label Website:
+                  input(type="text", name="website", id="website", value= school.website ? school.website : '')
+                .signupFormRow
+                  label Email:
+                  input(type="text", name="email", id="email", value= school.email ? school.email : '')
+                .signupFormRow
+                  label Phone:
+                  input(type="text", name="phone", id="phone", value= school.phone ? school.phone : '')
+                .signupFormRow
+                  label Address:
+                  textarea(name="address1", id="address1", rows="4", cols="25") #{school.address}
+                .signupFormRow
+                  label Facebook:
+                  input(type="text", name="facebook", id="facebook", value= school.facebook ? school.facebook : '')
+                .signupFormRow
+                  label Twitter:
+                  input(type="text", name="twitter", id="twitter", value= school.twitter ? school.twitter : '')
+                .signupFormRow
+                  label Tumblr:
+                  input(type="text", name="tumblr", id="tumblr", value= school.tumblr ? school.tumblr : '')
+                .signupFormRow
+                  label Youtube:
+                  input(type="text", name="youtube", id="youtube", value= school.youtube ? school.youtube : '')
+                .signupFormRow
+                  label Teaching Category:
+                  select(name='category', id='category', onchange='changeCourse(this.value, "#{school.id}");')
+                    option(value='') All
+                .signupFormRow
+                  label Teaching Courses:
+                  #courses.checkHolder
+                
+                  
+                  input(type='submit', value='Update', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

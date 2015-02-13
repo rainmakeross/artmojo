@@ -1,0 +1,282 @@
+extends layout
+
+block content
+    script(type='text/javascript')
+      $(function() {
+        loadMentors();
+        loadCourses();
+      });
+    .headerOut
+      .container
+        .headerTop
+          h2 Welcome to ArtMojo
+          .login_signup
+            ul
+              li.login
+                a(href='/login') login
+              li.signup
+                a(href='/signup') Sign up
+        .headerBottom
+          .logo
+            a(href='/') fb
+          .category
+            .events
+              a(href='/events')
+                img(src='images/icon1.png', alt='')
+                p Events
+            .addListing
+              a(href='/artists/public/add')
+                img(src='images/icon2.png', alt='')
+                p Add Listing
+            .addEvent
+              a(href='/events/public/add')
+                img(src='images/icon3.png', alt='')
+                p Add Event
+        .clr
+    .headerShadow
+    //
+      / Header
+    //
+      Banner
+    .banner
+      .container
+        .bannerText
+          h2
+            | Your Musical
+            br
+            | Search Starts Here!
+          p
+            | Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        .bannerButtons
+          form#searchFrm(method='post', action='/courses/results', name='searchFrm')
+            input#search_data(type='text', name='courseName', value='What?')
+            .relative
+              input#userCity(type='text', name='location', value='Where?')
+            .relative2
+            input(type='submit', value='Search')
+            input#tabVal(type='hidden', name='tabVal', value='courseTab')
+        .clr
+    //
+      / Banner
+    //
+      Featured Mentors
+    .featuredMentors
+      .container
+        .featuredMentorsContainer
+          .featuredMentorsHeader
+            h2 Featured Mentors
+            .clr
+          #indexMentors
+          .clr
+    //
+      Featured ArtForms
+    .featuredArtForm
+      .container
+        .featuredArtFormContainer
+          .featuredArtformHeader
+            h2 Featured art forms
+            a(href='#') see all
+            .clr
+          #indexCourses
+          .clr
+    //
+      How It Works
+    .howItWorks
+      .container
+        .howItWorksContainer
+          .featuredevent
+            .howItWorksHeader
+              h2 featured event
+              .clr
+            .gettingStartedContainer
+              .featuredevt
+                .search
+                  .searchText(style='width: 90%;')
+                    h2 event  name 
+                    span.date l  24 June 2013
+                    p
+                      | Ut enim ad minim veniam, quis nostrud exercitation ullamco Ut enim ad minim veniam, quis nostrud exercitation ullamco Ut enim ad minim veniam, quis nostrud exercitation ullamco Ut enim ad minim veniam, quis nostrud exercitation ullamco Ut enim ad minim veniam, quis nostrud exercitation ullamcoUt enim ad minim veniam, quis nostrud exercitation ullamco
+                    .eventImg
+                      img(src='images/Untitled-1.jpg', width='249', height='250')
+                  .clr
+              .clr
+          .eventsection
+            .howItWorksHeader
+              h2 Events
+              a.eventhead(href='#') see all
+              .clr
+            .gettingStartedContainer
+              .gettingStartedContainerLeft
+                .search
+                  .searchImg
+                  .searchText
+                    h2 event  name 
+                    span.date l  24 June 2013
+                    p Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                  .clr
+                .search
+                  .searchImg
+                  .searchText
+                    h2 event  name 
+                    span.date l  24 June 2013
+                    p Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                  .clr
+                .search
+                  .searchImg
+                  .searchText
+                    h2 event  name 
+                    span.date l  24 June 2013
+                    p Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                  .clr
+                .search
+                  .searchImg
+                  .searchText
+                    h2 event  name 
+                    span.date l  24 June 2013
+                    p Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                  .clr
+              .gettingStartedContainerRight
+                .search
+                  .searchImg
+                  .searchText
+                    h2 event  name 
+                    span.date l  24 June 2013
+                    p Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                  .clr
+                .search
+                  .searchImg
+                  .searchText
+                    h2 event  name 
+                    span.date l  24 June 2013
+                    p Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                  .clr
+                .search
+                  .searchImg
+                  .searchText
+                    h2 event  name 
+                    span.date l  24 June 2013
+                    p Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                  .clr
+                .search
+                  .searchImg
+                  .searchText
+                    h2 event  name 
+                    span.date l  24 June 2013
+                    p Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                  .clr
+              .clr
+          .clr
+    .bottomContainer
+      .container
+        .bottomContainerContent
+          .press
+            h2 Press
+            p
+              | Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est . Excepteur sint occaecat in culpa qui officia deserunt mollit anim id est laborum.
+            a.more1(href='#') More
+          .newUser
+            h2 New Users
+            .newUsersGallery
+              ul
+                li
+                li
+                li
+                li
+                li
+                li
+            .clr
+            a.more2(href='#') More
+          .otherLinks
+            h2 Other Links
+            ul
+              li
+                a(href='/term') Terms and Condition 
+              li
+                a(href='/about') About Us
+              li
+                a(href='/contact') Contact Us
+              li
+                a(href='/privacy') Privacy
+            a.more3(href='#') Go to Blog
+          .clr  
+    //
+      Footer
+    .footer
+      .newsletter
+        .container
+          .newsletterText
+            h2 Subscribe to our newsletter
+            span News and updates on what we're up to 
+          .newsletterForm
+            form#nlFrm(method='post', action='#', name='nlFrm')
+              input#nltext(type='text', name='nltext', value='Enter email')
+              input(type='submit', value='')
+          .clr
+      .footerBottom
+        .container
+          .tweeted
+            h2
+              | Recently Tweeted/
+              span @artmojo
+            ul
+              li
+                | A look into our evolving jstesting methods. @Simpdon psytivk dhstrd hoe er str udinh Mocha, jasmine, and Grunt
+                a(href='#') http://Tco/5Nwwue9vem
+                span 22 may 2013
+              li
+                | @charliechauvin represent #RWD!
+                span 22 may 2013
+              li
+                | A look into our evolving jstesting methods. @Simpdon psytivk dhstrd hoe er str udinh Mocha, jasmine, and Grunt
+                a(href='#') http://Tco/5Nwwue9vem
+                span 22 may 2013
+          .getInContact
+            h2 Get in Contact
+            .contact
+              h3 Contact
+              p
+                | Phone:888-888-4545 /Fax:888-888-4545
+                br
+                | Email:info@artmjo.co
+                br
+                | 2603 MainSt.32442
+                br
+                | Name Street, City
+            .socialLink
+              h3 Social Media
+              ul
+                li
+                  a(href='https://www.facebook.com/TheArtMojo')
+                    img(src='images/social1.png', alt='')
+                li
+                  a(href='https://twitter.com/TheArtMojo')
+                    img(src='images/social2.png', alt='')
+                li
+                  a(href='http://theartmojo.tumblr.com/')
+                    img(src='images/tumblr2.png', alt='')
+                li
+                  a(href='#')
+                    img(src='images/social4.png', alt='')
+          .links
+            h2 Links
+            ul
+              h3 Copyright 2013
+              li
+                a(href='/terms') Terms and Conditions
+              li
+                a(href='/faq') FAQ's
+              li
+                a(href='/about') About
+            ul
+              h3 Other Links
+              li
+                a(href='/privacy') Privacy
+              li
+                a(href='/contact') Contact
+              li
+                a(href='/legal') Legal
+          .clr
+      .copyRight
+        .copyRightText All Rights Reserved Artmojo.Copyright 2013
+    //
+      / Footer

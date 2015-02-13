@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+    
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Artmojo Sign in helper
+                
+            .signupForm
+              form#tokenFrm( method='post', action='/', name='tokenFrm', onsubmit='resendToken(); return false;')
+                .signupFormRow
+                    .fullText Click the button below to resend the verification email.                
+                .signupFormRow
+                  .btnSpace
+                        input(type='submit', value='Resend', name='')
+                  
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

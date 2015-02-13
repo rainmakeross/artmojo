@@ -1,0 +1,57 @@
+extends ../layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/calendarUi.css')
+    script(type='text/javascript', src='/javascripts/uiControllers/CalendarUi.js')
+    script(type='text/javascript', src='/javascripts/uiControllers/EventView.js')
+    script(type='text/javascript')
+            $(function() {
+                    loadLocation();
+                    loadSrchTxt();
+                    loadSrchCategory(#{category});
+                    var eventLocation = "#{location}";
+                    if(!eventLocation){
+                        eventLocation = $('#userCity').val();
+                    }
+                    if("#{login}")
+                            alert("You can't Add Events without SignIn");
+                    showEvents();
+                    $('#calendar').css('width', '90%');
+                    $('#calendar').css('max-width', '800');
+                    $('#calendar').css('text-align', 'center');
+                    
+                    
+                    
+
+            });
+                    
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        include ../elements/event_search_index
+        .content
+          .contentIn
+            .ourstory
+              .ourstoryHeader
+                h2 Artmojo Events
+              p
+                landingContainer
+                    div
+                        #add
+                           a(href="/events/public/add", class="clickButtons_v2") Add Events
+                    div(style='text-align:center')
+                        #calendar
+                    .listDiv
+                        #eventList
+
+            
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

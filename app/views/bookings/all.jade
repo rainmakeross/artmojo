@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/admin_table.css')
+    script(type='text/javascript', src='/javascripts/jquery.dataTables.min.js')
+    script(type='text/javascript', src='/javascripts/uiControllers/Booking.js')
+    script(type='text/javascript')
+            $(function() {
+                    
+                   loadAllBookings();
+            });
+                    
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .content
+          .contentIn
+            .ourstory
+              .ourstoryHeader
+                h2 Bookings
+              p
+                landingContainer
+                    div
+                        
+                    .listDiv
+                        #bookingList
+
+            
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

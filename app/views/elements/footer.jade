@@ -1,0 +1,34 @@
+//
+      Footer
+    .footer
+      .newsletter
+        .container
+          .newsletterText
+            h2 Subscribe to our newsletter
+            span News and updates on what we're up to 
+          .newsletterForm
+            form#nlFrm(action='#', method='post', name='nlFrm', onsubmit='subscribe(); return false;')
+              input#nltext(type='text', placeholder='enter email', name='nltext')
+              input(type='submit', value='', name='')
+          .clr
+      .footerBottom
+        .container
+          .footerStyles
+            a(href='/about') About
+            a(href='/contact') Contact
+            a(href='/events') Events
+            a(href='/blogs') Blogs
+            a(href='/search') Search
+            a(href='/legal') Legal
+      .footerBottom
+        .container
+          .footerImg
+            a(href='https://www.facebook.com/TheArtMojo', target='_blank')
+                 img(src='/images/social1.png', alt='Artmojo Facebook')
+            a(href='https://twitter.com/TheArtMojo', target='_blank')
+                 img(src='/images/social2.png', alt='Artmojo Twitter')
+            a(href='http://theartmojo.tumblr.com/', target='_blank')
+                 img(src='/images/tumblr2.png', alt='Artmojo Tumblr')
+        .clr
+    .copyRight
+      .copyRightText All Rights Reserved Artmojo.Copyright 2013

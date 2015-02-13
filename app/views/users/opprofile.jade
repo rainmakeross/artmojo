@@ -1,0 +1,59 @@
+extends ../layout
+
+block content
+    
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        include ../elements/search
+        .content
+          .contentIn
+            .teacherWrap
+              .teacherImg2Wrap
+                .teacherImg2
+                  img(src='/images/dummy_user.gif', alt='#{user.full_name}', style='width:250px; max-height: 270px;')
+                .socialShare2
+                  
+              .teacherDetail
+                .teacherDetailTop
+                  .teacherDetailTopLeft
+                    h2 #{user.full_name}
+                    br
+                    a(href='/users/editlogininfo', class="clickButtons") Edit Profile
+                    br 
+                    br
+                    a(href='/myartists', class="clickButtons_v2") Artists
+                    br 
+                    br
+                    a(href='/myschools', class="clickButtons") Schools
+                    br 
+                    br
+                    a(href='/opevents', class="clickButtons_v2") Events
+                    br 
+                    br
+                    a(href='/opjobs', class="clickButtons") Jobs
+                    
+                  .rating2
+                    p 
+                    .rating2Content
+                      
+                .subjectDetail
+                  .subjectTaught
+                    // h2 My Story:
+                    
+                      
+                  
+                
+                  
+              .clr
+            
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer
+    //

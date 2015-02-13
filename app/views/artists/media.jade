@@ -1,0 +1,102 @@
+extends ../layout
+
+block content
+    
+    script(type='text/javascript', src='/javascripts/jquery.bxslider.min.js')
+    script(type='text/javascript', src='/jwplayer/swfobject.js')
+    script(type='text/javascript', src='/jwplayer/jwplayer.js')
+    link(rel='stylesheet', href='/stylesheets/jquery.bxslider.css')
+    script(type='text/javascript', src='/javascripts/uiControllers/ArtistView.js')
+    script(type='text/javascript')
+      $(function() {
+         loadAllImages('#{url}');
+         //loadAllVideos('#{url}');
+         loadAllAudios('#{url}');
+      });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        include ../elements/search
+        .tab2
+              ul
+                li
+                  a(href='/artists/view?url=#{url}', rel='tab_changer') Profile
+                li
+                  a(href='/artists/view/credentials?url=#{url}', rel='tab_changer') Credentials
+                li
+                  a.activeTab(href='/artists/view/media?url=#{url}', rel='tab_changer') Related Media
+        .content
+          .contentIn
+            
+            .artist
+              h2 images
+              .clr
+              .artistContent
+                .artistContentTop
+                  h3
+                  
+                    .clr
+                  #images
+                      
+             .artist
+                h2 videos
+                .clr
+                .artistContent
+                  .artistContentTop
+                    h3
+
+
+                      .clr
+                    .videoWrapper(style='margin-bottom:15px;')
+                        #videos
+                        script(type='text/javascript')
+                            if(!{videos}){
+                                var arr = [];
+                                var videoData = !{videos};
+                                //console.log(videoData);
+                                var i = 0;
+                                videoData.forEach(function(data){
+                                    arr[i] = {
+                                                image: "/videos/artists/additional_videos/cover/"+data.videoCover,
+                                                file: "/videos/artists/additional_videos/"+data.video,
+                                                title: data.title
+                                             };
+                                    i++;
+                                });
+                                if(arr){
+                                    if(arr.length > 0){
+                                        jwplayer("videos").setup({
+                                            playlist: arr
+                                        });
+                                    }else{
+                                        $('#videos').html('<h4>No Videos uploaded yet.</h4>');
+                                    }
+                                }else{
+                                    $('#videos').html('<h4>No Videos uploaded yet.</h4>');
+                                }
+
+                            }else{
+                                $('#videos').html('<h4>No Videos uploaded yet.</h4>');
+                            }
+              .artist
+                h2 audios
+                .clr
+                .artistContent
+                  .artistContentTop
+                    h3
+
+
+                      .clr
+                    #audios
+              .clr            
+            .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer
+    //

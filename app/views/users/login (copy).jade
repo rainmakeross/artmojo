@@ -1,0 +1,79 @@
+extends ../layout
+
+block content
+    //
+      Header
+    .headerOut
+      .container
+        .headerTop
+          h2 Welcome to ArtMojo
+          .login_signup
+            ul
+              li.login
+                a(href='/login') login
+              li.signup
+                a(href='/signup') Sign up
+        .headerBottom
+          .logo
+            a(href='/') fb
+          .loginForm
+            form( method='post', action='/users/dologin', name='loginFrm', onsubmit='return validateLogin();')
+              .loginFormCol1
+                label Email 
+                input(type='text', value='', name="email", id="email")
+                .empty2
+                  input(type='checkbox', value='yes', name='remember_me', id='remember_me')
+                  p Keep me logged in
+              .loginFormCol1
+                label Password
+                input(type="password", name="password", id="password")
+                .empty2
+                  p 
+                    a(href='/resetpassword') Forgot your password?
+              input(type='submit', value='Login', name='')
+        .clr
+    .headerShadow
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Sign up
+                span It’s free & always will be.
+            .signupForm
+              form( method='post', action='#', name='signupFrm', id='signupFrm', onsubmit='doSignup(); return false;')
+                .signupFormRow
+                  label First Name:
+                  input(type="text", name="first_name", id="first_name")
+                .signupFormRow
+                  label Last Name:
+                  input(type="text", name="last_name", id="last_name")
+                .signupFormRow
+                  label Your Email:
+                  input(type="text", name="semail", id="semail")
+                .signupFormRow
+                  label Password:
+                  input(type="password", name="spassword", id="spassword")
+                
+                  span
+                    | By clicking Sign Up, you agree to our
+                    a(href='#') Terms
+                    | and that you have read our
+                    a(href='#') Data Use Policy
+                    | , including our
+                    a(href='#') Cookie Use
+                    | .
+                  input(type='submit', value='Sign Up Today!', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

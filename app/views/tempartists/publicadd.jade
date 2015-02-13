@@ -1,0 +1,102 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/TempArtistView.js')
+    script(type='text/javascript')
+        $(function() {
+                setupUI();
+        });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Add listing
+                span 
+            .signupForm
+              form#artistEditFrm( method='post', action='/tempartists/add', name='artistEditFrm', enctype="multipart/form-data", onsubmit='return validateTempArtist();')
+                .signupFormRow
+                  label This is me.
+                  input(type="checkbox", name="mylisting", id="mylisting", value="1", checked="checked")
+                .signupFormRow
+                  label Your Email:
+                  input(type="text", name="your_email", id="your_email", value="")
+                .signupFormRow
+                  label First Name:
+                  input(type="text", name="first_name", id="first_name", value="")
+                .signupFormRow
+                  label Last Name:
+                  input(type="text", name="last_name", id="last_name", value="")
+                .signupFormRow
+                  label Country:
+                  select(name='country', id='country', onchange='changeState(this.value);')
+                .signupFormRow
+                  label State:
+                  #stateHolder
+                    select(name='state', id='state', onchange='changeCity(this.value);')
+                .signupFormRow
+                  label City:
+                  #cityHolder
+                    select(name='city', id='city')
+                .signupFormRow
+                  label Picture Link:
+                  input(type="text", name="artist_image", id="artist_image", value="")
+                .signupFormRow
+                  label OR
+                  &nbsp;
+                .signupFormRow
+                  label Upload Picture:
+                  input(type="file", name="picture", id="picture")
+                .signupFormRow
+                  label Your Story:
+                  textarea(name="description", id="description", rows="4", cols="25")
+                .signupFormRow
+                  label Website:
+                  input(type="text", name="website", id="website", value="")
+                .signupFormRow
+                  label Email:
+                  input(type="text", name="id_email", id="id_email", value='')
+                .signupFormRow
+                  label Phone:
+                  input(type="text", name="phone", id="phone", value='')
+                .signupFormRow
+                  label Address:
+                  textarea(name="address1", id="address1", rows="4", cols="25")
+                .signupFormRow
+                  label Facebook:
+                  input(type="text", name="facebook", id="facebook", value='')
+                .signupFormRow
+                  label Twitter:
+                  input(type="text", name="twitter", id="twitter", value= '')
+                .signupFormRow
+                  label Tumblr:
+                  input(type="text", name="tumblr", id="tumblr", value= '')
+                .signupFormRow
+                  label Youtube:
+                  input(type="text", name="youtube", id="youtube", value= '')
+                .signupFormRow
+                  label Category:
+                  select(name='category', id='category', onchange='changeCourse(this.value);')
+                .signupFormRow
+                  label Courses:
+                  #courses
+                .signupFormRow
+                  label Notes:
+                  textarea(name="notes", id="notes", rows="4", cols="25")
+                  span
+                    | Admin has all the rights to delete/cancel the information you are providing.
+                  input(type='submit', value='Edit', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

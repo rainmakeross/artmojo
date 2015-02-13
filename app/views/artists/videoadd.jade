@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/ArtistView.js')
+    
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        include ../elements/search
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Add Video
+                span 
+            .signupForm
+              form#videoAddFrm( method='post', action='/artist/video/doaddvideo', name='videoAddFrm', enctype="multipart/form-data", onsubmit='return validateVideoFrm();')
+                .signupFormRow
+                  label Title:
+                  input(type="text", name="title", id="title")
+                .signupFormRow
+                  label Cover:
+                  input(type="file", name="picture", id="picture")
+                .signupFormRow
+                  label Video:
+                  input(type="file", name="video", id="video")
+                  span
+                    | 
+                  input(type='submit', value='Add', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

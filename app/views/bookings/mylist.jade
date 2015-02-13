@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/admin_table.css')
+    script(type='text/javascript', src='/javascripts/jquery.dataTables.min.js')
+    script(type='text/javascript', src='/javascripts/uiControllers/Booking.js')
+    script(type='text/javascript')
+            $(function() {
+                    
+                   loadMyBookings();
+            });
+                    
+            
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .content
+          .contentIn
+            .ourstory
+              .ourstoryHeader
+                h2 Bookings >> Requests made
+              p
+                landingContainer
+                    .tab2
+                        ul
+                          li
+                            a#artistTab.activeTab(href='/mybookings', rel='tab_changer') Requests made
+                          li
+                            a#courseTab(href='/bookings/requests', rel='tab_changer') Requests received
+                          li
+                            a#schoolTab(href='#', rel='tab_changer') Transactions
+                          li
+                            a#eventTab(href='#', rel='tab_changer') Balance
+                   .clr
+                    .listDiv
+                        #bookingList
+
+            
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

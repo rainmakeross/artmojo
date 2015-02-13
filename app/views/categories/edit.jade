@@ -1,0 +1,37 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Category.js')
+        
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Edit category
+                span It’s free & always will be.
+            .signupForm
+              form#categoryAddFrm( method='post', action='/category/doedit', name='categoryAddFrm', onsubmit='return validateCategoryFrm();')
+                
+                .signupFormRow
+                  label Name:
+                  input(type="text", name="name", id="name", value="#{category.name}")
+                  input(type="hidden", name="id", id="id", value="#{category.id}")
+                  span
+                    | Admin has all the rights to deactivate the category without any prior notice to the user. .
+                  input(type='submit', value='Edit', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

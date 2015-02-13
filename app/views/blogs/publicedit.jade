@@ -1,0 +1,42 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Blog.js')
+    
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        include ../elements/search
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Edit Blog
+                span 
+            .signupForm
+              form#blogAddFrm( method='post', action='/blogs/doeditblog', name='blogEditFrm', enctype="multipart/form-data", onsubmit='return validateBlogFrm();')
+                
+                .signupFormRow
+                  label Title:
+                  input(type="text", name="title", id="title", value="#{blog.title}")
+                  input(type="hidden", name="blogId", id="blogId", value="#{blog.id}")
+                .signupFormRow
+                  label Content:
+                  textarea(name="content", id="content", rows="4", cols="25") #{blog.content}
+                
+                  span
+                    | .
+                  
+                  input(type='submit', value='Edit', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer

@@ -1,0 +1,119 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/SchoolView.js')
+    script(type='text/javascript')
+      $(function() {
+        showCourses(#{school.id}, '#{school.school_name}');
+        showArtists(#{school.id}, '#{school.school_name}');
+        showReviews(#{school.id});
+        $(".basic").jRating({
+            bigStarsPath: '/images/stars.png',
+            smallStarsPath: '/images/small.png',
+            serverPath: '/schools/rating',
+            step:true,
+            length : 5, // nb of stars
+            showRateInfo: false,
+            extraParam: #{school.id}
+          });
+      });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        include ../elements/search
+        .content
+          .contentIn
+            .teacherWrap
+              .teacherImg2Wrap
+                .teacherImg2
+                  -if(school.school_image)
+                    -if(school.localImg == 1)
+                        img(src='/images/schools/thumb/#{school.school_image}', alt='#{school.school_name}', style='width:250px; max-height: 270px;')
+                    -else
+                        img(src='#{school.school_image}', alt='#{school.school_name}', style='width:250px; max-height: 270px;')
+                  -else
+                        img(src='/images/dummy_user.gif', alt='#{school.school_name}', style='width:250px; max-height: 270px;')
+                .socialShare2
+                  
+              .teacherDetail
+                .teacherDetailTop
+                  .teacherDetailTopLeft
+                    h2 #{school.school_name}
+                    br
+                    <div class="basic" data-average="#{totalRate}" data-id="#{school.id}"></div>
+                    br
+                    .button
+                       a(href='#', onclick="addtolistschool('#{school.id}'); return false;", class="clickButtons_v3") Save to list
+                        
+                  .rating2
+                    p 
+                    .rating2Content
+                      
+                .subjectDetail
+                  .subjectTaught
+                    h2 Our Story:
+                    
+                      
+                  p
+                   -if(school.description)
+                    | #{school.description}
+                   -else
+                    | #{school.school_name} specializes in #{school.course_tag}
+                  .clr
+                .teacherDetailBottom
+                  .teacherAdress
+                    p
+                      span
+                        img(src='/images/pin_map.png', alt='')
+                      | #{school.location}
+                    -if(school.phone)
+                        p
+                          span
+                            img(src='/images/tel.png', alt='')
+                          | #{school.phone}
+                    
+                    -if(school.email)
+                        p
+                            span
+                              img(src='/images/mail1.png', alt='')
+                            a(href='mailto:#{school.email}') #{school.email}
+
+                    -if(school.website)
+                        p
+                            span
+                              img(src='/images/icon4.png', alt='')
+                            a(href='#{website}', target='_blank') Click for school website
+                  
+              .clr
+            .courses_schools
+              #course.schoolCourses
+                
+              #artist.schoolArtist
+                
+              .clr
+            .video_audio_photoWrap
+              //
+                video section
+            .reviews
+              h2 reviews (<span id="reviewCnt">#{school.total_comments}</span>)
+              // a(href='#') SEE ALL
+              .clr
+              #reviews.reviewsContainer
+                
+              .commentForm
+                form#reviewFrm(action='#', method='post', name='reviewFrm', onsubmit='addReview(); return false;')
+                  textarea#review(name='review', onfocus='$("#review").val("");') Have a comment? Add it here
+                  input#id(type='hidden', name='id', value='#{school.id}')
+                  input#st(type='hidden', name='st', value='#{logStatus}')
+                  input(type='submit', value='Add Comment', name='')
+            .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer
+    //

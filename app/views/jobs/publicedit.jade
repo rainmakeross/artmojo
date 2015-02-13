@@ -1,0 +1,92 @@
+extends ../layout
+
+block content
+    script(type='text/javascript', src='/javascripts/uiControllers/Job.js')
+    script(type='text/javascript')
+        $(function() {
+                 setupUI(#{job.categoryId}, #{job.job_typeId}, #{country}, #{state}, #{job.cityId}, "#{job.closingDate}");
+        });
+    include ../elements/header
+    //
+      / Header
+    //
+      Container
+    .containerr
+      .container
+        include ../elements/job_search
+        .loginContent
+          .contentIn
+            .ourstoryHeader
+              h2
+                | Post a job
+                span 
+            .signupForm
+              form#jobAddFrm( method='post', action='/jobs/doeditjob', name='jobAddFrm', enctype="multipart/form-data", onsubmit='return validateJobFrm();')
+                .signupFormRow
+                  label Category:
+                  select(name='category', id='category')
+                .signupFormRow
+                  label Job Type:
+                  select(name='job_typeId', id='job_typeId')
+                .signupFormRow
+                  label Country:
+                  select(name='country', id='country', onchange='changeState(this.value);')
+                .signupFormRow
+                  label State:
+                  #stateHolder
+                    select(name='state', id='state', onchange='changeCity(this.value);')
+                .signupFormRow
+                  label City:
+                  #cityHolder
+                    select(name='city', id='city')
+                .signupFormRow
+                  label Title:
+                  input(type="text", name="jobTitle", id="jobTitle", value='#{job.jobTitle}')
+                  input(type="hidden", name="userId", id="userId", value='#{userId}')
+                  input(type="hidden", name="jobId", id="jobId", value='#{job.id}')
+                  input(type="hidden", name="operator", id="operator", value='#{job.operator}')
+                .signupFormRow
+                  label Picture Link:
+                  input(type="text", name="job_image", id="job_image")
+                .signupFormRow
+                  label OR
+                  &nbsp;
+                .signupFormRow
+                  label Upload Picture:
+                  input(type="file", name="picture", id="picture")
+                .signupFormRow
+                  label Description:
+                  textarea(name="description", id="description", rows="4", cols="25") #{job.description}
+                .signupFormRow
+                  label Expiry Date:
+                  select(name='from_year', id='from_year', style='width:100px')
+                  -
+                  select(name='from_month', id='from_month', style='width:100px')
+                  -
+                  select(name='from_date', id='from_date', style='width:100px')
+                .signupFormRow
+                  label Salary:
+                  input(type="text", name="salary", id="salary", value= job.salary ? job.salary : '')
+                .signupFormRow
+                  label Website:
+                  input(type="text", name="applicationWebsite", id="applicationWebsite", value= job.applicationWebsite ? job.applicationWebsite : '')
+                .signupFormRow
+                  label Email:
+                  input(type="text", name="applicationEmail", id="applicationEmail", value= job.applicationEmail ? job.applicationEmail : '')
+                .signupFormRow
+                  label Phone:
+                  input(type="text", name="applicationPhone", id="applicationPhone", value= job.applicationPhone ? job.applicationPhone : '')
+                .signupFormRow
+                  label Address:
+                  textarea(name="applicationAddress", id="applicationAddress", rows="4", cols="25") #{job.applicationAddress}
+                  span
+                    | 
+                  input(type='submit', value='Edit', name='')
+                .clr
+            .clr
+          .clr
+    //
+      / Container
+    include ../elements/footer
+    //
+      / Footer
